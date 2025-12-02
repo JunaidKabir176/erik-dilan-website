@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Who is Erik? | Erik Dilan for New York State Assembly</title>
+  <meta
+    name="description"
+    content="Learn more about Assemblymember Erik M. Dilan, his roots in North Brooklyn, and his record of fighting for housing, public safety, and working families."
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome (for burger icon) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+  <link rel="icon" 
+  type="image/png"
+   href="favicon_io_erik/favicon-32x32.png" 
+   />
+
+<body class="whois-erik-page">
+  <div id="site-header"></div>
+
+  <!-- ======================
+       MAIN CONTENT
+  ======================= -->
+  <main>
+    <!-- HERO / INTRO SECTION -->
+    <section class="erik-intro container">
+      <div>
+        <h1>Meet <span>Assemblyman Erik Dilan</span></h1>
+        <p>
+          Erik Martin Dilan has dedicated more than two decades to public service
+          in Brooklyn—fighting for safer streets, stronger tenant protections,
+          affordable housing, and resources that strengthen working families.
+        </p>
+        <ul class="erik-highlights">
+          <li>✔ Longtime advocate for affordable housing</li>
+          <li>✔ Champion for public safety and community investment</li>
+          <li>✔ Record of delivering resources to schools and senior centers</li>
+          <li>✔ Former NYC Council Member & experienced legislator</li>
+          <li>✔ Lifelong North Brooklyn resident and product of NYC public schools</li>
+          <li>✔ Serving in the State Assembly since 2015, representing the 54th District</li>
+          <li>✔ Chair of the Assembly Committee on Correction and member of key committees on housing, energy, insurance, and the budget</li>
+        </ul>
+      </div>
+
+          <div class="hero-photo-frame">
+          <img src="erik.jpg" alt="Assemblymember Erik M. Dilan" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section class="erik-section">
+      <h2>Fighting for Affordable Housing</h2>
+      <p>
+        Erik has been at the forefront of legislative efforts to protect tenants,
+        expand rent stabilization, and fund affordable housing construction. His
+        record shows a commitment to keeping New Yorkers housed with dignity and stability.
+      </p>
+    </section>
+
+    <section class="erik-section">
+      <h2>Building Safer, Stronger Neighborhoods</h2>
+      <p>
+        From public safety investments to violence interruption programs, Erik brings an
+        experienced, balanced approach to keeping families safe while strengthening
+        community trust and accountability.
+      </p>
+    </section>
+
+    <section class="erik-section">
+      <h2>Supporting Working Families</h2>
+      <p>
+        Erik continues to champion legislation expanding childcare access, worker
+        protections, and cost-of-living relief—because every family deserves a fair shot.
+      </p>
+    </section>
+  </main>
+
+  <!-- ======================
+       FOOTER
+  ======================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="paid-for">
+        Paid for by Friends of Erik Dilan
+      </p>
+      <p class="footer-meta">
+        © <span id="year"></span> Erik Dilan for New York State Assembly. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ======================
+       SCRIPTS
+  ======================= -->
+<script>
+  // Load shared navbar into #site-header
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('site-header').innerHTML = html;
+
+      // Wire up nav toggle AFTER navbar is injected
+      const navToggle = document.querySelector('.nav-toggle');
+      const mainMenu = document.getElementById('primary-nav');
+
+      if (navToggle && mainMenu) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = mainMenu.classList.toggle('is-open');
+          navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+      }
+
+      // Highlight active link based on current file
+      const links = document.querySelectorAll('.main-menu .nav-link');
+      const path = window.location.pathname.split('/').pop() || 'ErikDilan.html';
+
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === path) {
+          link.classList.add('active');
+        }
+      });
+    })
+    .catch(err => {
+      console.error('Error loading navbar:', err);
+    });
+
+  // Footer year (optional, if you use it)
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+</script>
+</body>
+</html>

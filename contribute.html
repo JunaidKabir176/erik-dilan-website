@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contribute | Campaign Name</title>
+
+  <style>
+    :root {
+      --bg: #f4f5fb;
+      --surface: #ffffff;
+      --primary: #0058d3;
+      --primary-dark: #003f94;
+      --accent: #f5a623;
+      --text-main: #1c2345;
+      --text-muted: #657287;
+      --border-soft: #ccd3de;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    /* NAVBAR */
+    .nav {
+      background: #ffffff;
+      border-bottom: 1px solid #e0e4ee;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+    .nav-links a {
+      margin-left: 1.25rem;
+      text-decoration: none;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+    .nav-links a.donate-link {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* MAIN */
+    .main {
+      max-width: 1100px;
+      margin: 2.5rem auto;
+      padding: 0 1rem;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-bottom: 1.25rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .back-home:hover {
+      text-decoration: underline;
+    }
+
+    .contribute-shell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media(max-width: 900px) {
+      .contribute-shell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* LEFT PANEL */
+    .ask-card {
+      background: var(--surface);
+      border: 1px solid #e0e4ee;
+      border-radius: 8px;
+      padding: 2rem;
+    }
+    .ask-title {
+      font-size: 2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .ask-body {
+      margin-top: 0.75rem;
+      margin-bottom: 1.25rem;
+      color: var(--text-muted);
+    }
+
+    /* FORM CONTAINER */
+    .form-card {
+      background: var(--surface);
+      border: 1px solid #e0e4ee;
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 0;
+    }
+    .form-header {
+      background: var(--accent);
+      padding: 1rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+    .actblue-frame-wrap iframe {
+      width: 100%;
+      border: 0;
+      min-height: 900px;
+    }
+
+    .return-home-btn {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .return-home-btn a {
+      text-decoration: none;
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .return-home-btn a:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">CAMPAIGN NAME</div>
+
+      <nav class="nav-links">
+        <!-- LINK BACK TO HOME -->
+        <a href="ErikDilan.html">Home</a>
+        <a href="issues.html">Issues</a>
+        <a href="WhoisErik.html">Who is Erik?</a>
+        <a href="contribute.html" class="donate-link">Contribute</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    
+    <!-- TEXT "BACK TO HOME" LINK -->
+    <a href="index.html" class="back-home">← Back to Home</a>
+
+    <div class="contribute-shell">
+
+      <!-- LEFT SIDE TEXT -->
+      <section class="ask-card">
+        <h1 class="ask-title">Chip in today</h1>
+
+        <p class="ask-body">
+          This campaign is powered by everyday supporters — not big-money interests.
+          Your contribution helps build a stronger, safer, and more responsive community.
+          Every dollar strengthens our outreach, organizing, and voter engagement.
+        </p>
+
+        <p><strong>Your support makes a real difference.</strong></p>
+      </section>
+
+      <!-- RIGHT SIDE: ACTBLUE FORM -->
+      <section class="form-card">
+        <div class="form-header">Secure Online Contribution</div>
+
+        <div class="actblue-frame-wrap">
+          <!-- Replace with your ActBlue form URL -->
+          <iframe 
+            src="https://secure.actblue.com/donate/REPLACE_WITH_YOUR_ACTBLUE_FORM"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- OPTIONAL BUTTON BACK TO HOME -->
+    <div class="return-home-btn">
+      <a href="index.html">Return to Home Page</a>
+    </div>
+
+  </main>
+
+</body>
+</html>
