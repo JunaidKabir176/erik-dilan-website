@@ -3,210 +3,296 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contribute | Campaign Name</title>
+  <title>Contribute | Erik Dilan for New York State Assembly</title>
 
+  <meta
+    name="description"
+    content="Support Assembly Member Erik M. Dilan's campaign with a secure online contribution."
+  />
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="favicon_io_erik/favicon-32x32.png"
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome (for burger icon in navbar.html) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main site stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-specific styling -->
   <style>
-    :root {
-      --bg: #f4f5fb;
-      --surface: #ffffff;
-      --primary: #0058d3;
-      --primary-dark: #003f94;
-      --accent: #f5a623;
-      --text-main: #1c2345;
-      --text-muted: #657287;
-      --border-soft: #ccd3de;
+    body.contribute-page {
+      background: #0b1b4f;
+      color: #e5e7eb;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      line-height: 1.5;
+    .contribute-hero {
+      padding: 56px 0 32px;
+      background: radial-gradient(
+        circle at top left,
+        #2563eb 0%,
+        #0038a8 45%,
+        #0b1b4f 100%
+      );
     }
 
-    /* NAVBAR */
-    .nav {
-      background: #ffffff;
-      border-bottom: 1px solid #e0e4ee;
-    }
-    .nav-inner {
-      max-width: 1100px;
+    .contribute-inner {
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 0.75rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-    }
-    .nav-links a {
-      margin-left: 1.25rem;
-      text-decoration: none;
-      color: var(--text-main);
-      font-size: 0.95rem;
-    }
-    .nav-links a.donate-link {
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 600;
-    }
-
-    /* MAIN */
-    .main {
-      max-width: 1100px;
-      margin: 2.5rem auto;
-      padding: 0 1rem;
-    }
-
-    .back-home {
-      display: inline-block;
-      margin-bottom: 1.25rem;
-      text-decoration: none;
-      font-size: 0.95rem;
-      color: var(--primary);
-      font-weight: 600;
-    }
-    .back-home:hover {
-      text-decoration: underline;
-    }
-
-    .contribute-shell {
+      padding: 0 16px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: stretch;
     }
 
-    @media(max-width: 900px) {
-      .contribute-shell {
+    @media (max-width: 900px) {
+      .contribute-inner {
         grid-template-columns: 1fr;
       }
     }
 
-    /* LEFT PANEL */
-    .ask-card {
-      background: var(--surface);
-      border: 1px solid #e0e4ee;
-      border-radius: 8px;
-      padding: 2rem;
-    }
-    .ask-title {
-      font-size: 2rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-    .ask-body {
-      margin-top: 0.75rem;
-      margin-bottom: 1.25rem;
-      color: var(--text-muted);
+    .contribute-copy {
+      background: rgba(15, 23, 42, 0.65);
+      border-radius: 18px;
+      padding: 24px 20px;
+      border: 1px solid rgba(191, 219, 254, 0.5);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
     }
 
-    /* FORM CONTAINER */
-    .form-card {
-      background: var(--surface);
-      border: 1px solid #e0e4ee;
-      border-radius: 8px;
-      overflow: hidden;
-      padding: 0;
-    }
-    .form-header {
-      background: var(--accent);
-      padding: 1rem;
+    .contribute-copy h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 3vw, 2.4rem);
       font-weight: 700;
+      color: #facc15;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contribute-copy p {
+      margin: 8px 0;
+      font-size: 0.98rem;
+      color: #e5e7eb;
+    }
+
+    .contribute-copy strong {
+      color: #fbbf24;
+    }
+
+    .contribute-meta {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+
+    /* Right card: ActBlue button */
+    .contribute-card {
+      background: #0b1b4f;
+      border-radius: 18px;
+      border: 1px solid rgba(191, 219, 254, 0.6);
+      padding: 22px 20px 24px;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .contribute-card-header {
       font-size: 0.95rem;
       text-transform: uppercase;
-    }
-    .actblue-frame-wrap iframe {
-      width: 100%;
-      border: 0;
-      min-height: 900px;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: #fbbf24;
+      margin-bottom: 4px;
     }
 
-    .return-home-btn {
-      margin-top: 2rem;
-      text-align: center;
+    .contribute-card-text {
+      font-size: 0.9rem;
+      color: #e5e7eb;
     }
-    .return-home-btn a {
-      text-decoration: none;
+
+    .actblue-wrap {
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .actblue-button {
       display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 6px;
-      font-weight: 600;
+      padding: 0.95rem 2.6rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #fbbf24, #eab308);
+      color: #111827;
+      font-weight: 700;
+      font-size: 0.98rem;
+      text-decoration: none;
+      text-align: center;
+      white-space: nowrap;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
+      transition: background 0.15s ease, transform 0.15s ease,
+        box-shadow 0.15s ease;
     }
-    .return-home-btn a:hover {
-      background: var(--primary-dark);
+
+    .actblue-button:hover {
+      background: linear-gradient(135deg, #facc15, #fbbf24);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.65);
+    }
+
+    .contribute-small-print {
+      font-size: 0.78rem;
+      color: #cbd5f5;
+      margin-top: 10px;
+    }
+
+    .contribute-back {
+      max-width: 1120px;
+      margin: 16px auto 32px;
+      padding: 0 16px;
+      text-align: left;
+    }
+
+    .contribute-back a {
+      font-size: 0.9rem;
+      color: #fbbf24;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contribute-back a:hover {
+      text-decoration: underline;
     }
   </style>
-
 </head>
-<body>
+<body class="contribute-page">
+  <!-- Shared navbar -->
+  <div id="site-header"></div>
 
-  <!-- NAVBAR -->
-  <header class="nav">
-    <div class="nav-inner">
-      <div class="nav-logo">CAMPAIGN NAME</div>
+  <main>
+    <section class="contribute-hero">
+      <div class="contribute-inner">
+        <!-- LEFT: COPY -->
+        <section class="contribute-copy">
+          <h1>Chip in today</h1>
+          <p>
+            This campaign is powered by neighbors, not big-money interests.
+            Your contribution helps Erik Dilan keep fighting for safer streets,
+            stronger tenant protections, and resources that working families
+            can count on.
+          </p>
+          <p>
+            Every dollar supports field organizing, outreach, and the tools
+            we need to turn out voters across the district.
+          </p>
+          <p class="contribute-meta">
+            <strong>Any amount makes an impact.</strong> Whether you’re able to give
+            $10, $25, or more, your support helps keep this campaign competitive.
+          </p>
+        </section>
 
-      <nav class="nav-links">
-        <!-- LINK BACK TO HOME -->
-        <a href="index.html">Home</a>
-        <a href="issues.html">Issues</a>
-        <a href="WhoisErik.html">Who is Erik?</a>
-        <a href="contribute.html" class="donate-link">Contribute</a>
-      </nav>
+        <!-- RIGHT: ACTBLUE CTA -->
+        <section class="contribute-card">
+          <div>
+            <div class="contribute-card-header">
+              Secure Online Contribution
+            </div>
+            <p class="contribute-card-text">
+              You’ll be taken to our secure ActBlue page to complete your
+              donation. Returning ActBlue donors may see some information
+              pre-filled for faster checkout.
+            </p>
+          </div>
+
+          <div class="actblue-wrap">
+            <a
+              class="actblue-button"
+              href="https://secure.actblue.com/donate/YOUR_ERIK_DILAN_FORM_SLUG"
+              target="_blank"
+              rel="noopener"
+            >
+              Contribute via ActBlue
+            </a>
+          </div>
+
+          <p class="contribute-small-print">
+            Contributions are processed by ActBlue. By donating, you confirm
+            that you are a U.S. citizen or lawfully admitted permanent resident,
+            and you are making this contribution with your own funds.
+          </p>
+        </section>
+      </div>
+    </section>
+
+    <div class="contribute-back">
+      <a href="index.html">← Back to Home</a>
     </div>
-  </header>
-
-  <main class="main">
-    
-    <!-- TEXT "BACK TO HOME" LINK -->
-    <a href="index.html" class="back-home">← Back to Home</a>
-
-    <div class="contribute-shell">
-
-      <!-- LEFT SIDE TEXT -->
-      <section class="ask-card">
-        <h1 class="ask-title">Chip in today</h1>
-
-        <p class="ask-body">
-          This campaign is powered by everyday supporters — not big-money interests.
-          Your contribution helps build a stronger, safer, and more responsive community.
-          Every dollar strengthens our outreach, organizing, and voter engagement.
-        </p>
-
-        <p><strong>Your support makes a real difference.</strong></p>
-      </section>
-
-      <!-- RIGHT SIDE: ACTBLUE FORM -->
-      <section class="form-card">
-        <div class="form-header">Secure Online Contribution</div>
-
-        <div class="actblue-frame-wrap">
-          <!-- Replace with your ActBlue form URL -->
-          <iframe 
-            src="https://secure.actblue.com/donate/REPLACE_WITH_YOUR_ACTBLUE_FORM"
-            scrolling="no"
-          ></iframe>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- OPTIONAL BUTTON BACK TO HOME -->
-    <div class="return-home-btn">
-      <a href="index.html">Return to Home Page</a>
-    </div>
-
   </main>
 
+  <!-- FOOTER (same pattern as other pages) -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="paid-for">
+        Paid for by Friends of Erik Dilan
+      </p>
+      <p class="footer-meta">
+        © <span id="year"></span> Erik Dilan for New York State Assembly. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Load shared navbar
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("site-header").innerHTML = html;
+
+        const navToggle = document.querySelector(".nav-toggle");
+        const mainMenu = document.getElementById("primary-nav");
+
+        if (navToggle && mainMenu) {
+          navToggle.addEventListener("click", () => {
+            const isOpen = mainMenu.classList.toggle("is-open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            document.body.classList.toggle("menu-open", isOpen);
+          });
+        }
+
+        // Highlight active nav link
+        const links = document.querySelectorAll(".main-menu .nav-link");
+        const path = window.location.pathname.split("/").pop() || "index.html";
+        links.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href === path) {
+            link.classList.add("active");
+          }
+        });
+      })
+      .catch((err) => console.error("Error loading navbar:", err));
+
+    // Footer year
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
 </body>
 </html>

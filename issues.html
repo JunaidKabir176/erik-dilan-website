@@ -7,10 +7,10 @@
   <title>On the Issues | Erik Dilan for New York State Assembly</title>
   <meta
     name="description"
-    content="Learn more about Erik Dilan's priorities and positions on the issues."
+    content="Learn more about Assembly Member Erik Dilan's priorities and positions on key issues."
   />
 
-  <!-- Tab icon (use your own favicon) -->
+  <!-- Tab icon -->
   <link rel="icon" type="image/png" href="favicon_io_erik/favicon-32x32.png" />
 
   <!-- Fonts -->
@@ -21,7 +21,7 @@
     rel="stylesheet"
   />
 
-  <!-- Font Awesome (for icons in navbar + issues) -->
+  <!-- Font Awesome (for icons) -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -29,121 +29,450 @@
     referrerpolicy="no-referrer"
   />
 
-  <!-- Your main site styles -->
+  <!-- Main site stylesheet -->
   <link rel="stylesheet" href="style.css" />
 
+  <!-- Page-specific styling -->
+  <style>
+    /* PAGE BACKGROUND TWEAK FOR ISSUES */
+    body.issues-page {
+      background: linear-gradient(180deg, #0038a8 0%, #0b1b4f 55%, #001229 100%);
+      color: #f9fafb;
+    }
+
+    /* HERO BAND */
+    .issues-hero {
+      padding: 52px 0 24px;
+      background: radial-gradient(
+        circle at top left,
+        #2563eb 0%,
+        #0038a8 45%,
+        #0b1b4f 100%
+      );
+    }
+
+    .issues-hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .issues-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #fbbf24;
+      margin-bottom: 6px;
+    }
+
+    .issues-title-main {
+      margin: 0 0 10px;
+      font-size: clamp(2.1rem, 3.8vw, 2.7rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .issues-hero-copy {
+      max-width: 720px;
+      font-size: 0.98rem;
+      color: #e5e7eb;
+    }
+
+    /* MAIN ISSUES SECTION */
+    .issues-section {
+      padding: 32px 0 56px;
+    }
+
+    .issues-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .issues-subtitle {
+      margin: 0 0 18px;
+      font-size: 1rem;
+      color: #e5e7eb;
+    }
+
+    /* GRID / CARD LAYOUT */
+    .issues-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .issues-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .issue-card {
+      background: #001229;
+      border-radius: 18px;
+      border: 1px solid rgba(191, 219, 254, 0.55);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .issue-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at top right,
+        rgba(248, 250, 252, 0.08),
+        transparent 55%
+      );
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    /* TOGGLE BUTTON (HEADER ROW) */
+    .issue-toggle {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 18px 16px;
+      background: transparent;
+      border: none;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .issue-toggle:focus-visible {
+      outline: 2px solid #fbbf24;
+      outline-offset: 3px;
+    }
+
+    .issue-icon-wrap {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at 30% 0%,
+        #fbbf24 0%,
+        #2563eb 40%,
+        #0b1b4f 90%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .issue-icon-wrap i {
+      color: #f9fafb;
+      font-size: 1.25rem;
+    }
+
+    .issue-header-text {
+      flex: 1;
+    }
+
+    .issue-heading {
+      margin: 0 0 4px;
+      font-size: 1.02rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #fbbf24;
+    }
+
+    .issue-tagline {
+      margin: 0;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #cbd5f5;
+    }
+
+    .issue-chevron {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+    }
+
+    .issue-chevron i {
+      font-size: 0.9rem;
+      transition: transform 0.25s ease;
+      color: #e5e7eb;
+    }
+
+    .issue-card.is-open .issue-chevron i {
+      transform: rotate(180deg);
+    }
+
+    /* COLLAPSIBLE PANEL */
+    .issue-panel {
+      position: relative;
+      z-index: 1;
+      padding: 0 18px 0;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.25s ease, opacity 0.25s ease;
+    }
+
+    .issue-card.is-open .issue-panel {
+      opacity: 1;
+      padding-bottom: 16px;
+    }
+
+    .issue-copy {
+      margin: 0;
+      padding-bottom: 4px;
+      font-size: 0.94rem;
+      line-height: 1.7;
+      color: #e5e7eb;
+    }
+  </style>
 </head>
 
 <body class="issues-page">
-  <!-- UNIVERSAL NAVBAR PLACEHOLDER -->
+  <!-- NAVBAR INJECTION TARGET -->
   <div id="site-header"></div>
 
-  <!-- MAIN CONTENT -->
   <main>
-    <section class="issues-section container">
-      <h1 class="issues-title">On the Issues</h1>
+    <!-- HERO BAND -->
+    <section class="issues-hero">
+      <div class="issues-hero-inner">
+        <p class="issues-kicker">Erik Dilan on the issues</p>
+        <h1 class="issues-title-main">Fighting for Fairness and Stability</h1>
+        <p class="issues-hero-copy">
+          Assembly Member Erik M. Dilan has spent his career focused on keeping
+          families housed, improving public safety, and making sure working
+          people in North Brooklyn and across New York have a fair shot. Below
+          are some of the core areas where he is leading and delivering.
+        </p>
+      </div>
+    </section>
 
-      <div id="issuesSection" class="issues-list">
-        <div class="issueItem">
-          <h3 id="sample_issue">
-            <i class="fa-solid fa-building"></i>
-            Housing & Tenant Rights
-          </h3>
-          <div id="issueSummary-sample_issue" class="issue-summary">
-            <p>
-        Assemblyman Erik Dilan has built his career around strengthening housing stability for New Yorkers, fighting displacement, and protecting tenants 
-        from abuse. He supports legislation that criminalizes landlord harassment of rent-regulated tenants, reins in speculative real-estate flipping, 
-        and expands safeguards for vulnerable renters, including individuals with disabilities and service animals. Erik approaches housing 
-        as a foundational right, pushing policies that preserve affordability, curb predatory practices, and ensure families can remain 
-        safely rooted in their communities.              
-        <span class="readMore2"><a href="/issues/sample_issue">Read More</a></span>
-            </p>
-          </div>
-        </div>
+    <!-- ISSUES GRID (ACCORDION CARDS) -->
+    <section class="issues-section">
+      <div class="issues-inner">
+        <p class="issues-subtitle">
+        </p>
 
-        <hr class="issue-hr" />
+        <div class="issues-grid">
+          <!-- ISSUE 1: Housing -->
+    <article class="issue-card" id="housing-tenant-rights">
+    <button
+    class="issue-toggle"
+    aria-expanded="false"
+    aria-controls="panel-housing-tenant-rights"
+  
+            >
+              <div class="issue-icon-wrap">
+                <i class="fa-solid fa-building"></i>
+              </div>
+              <div class="issue-header-text">
+                <h2 class="issue-heading">Housing & Tenant Rights</h2>
+                <p class="issue-tagline">Keeping families stable and rooted</p>
+              </div>
+              <span class="issue-chevron">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </button>
 
-        <div class="issueItem">
-          <h3 id="universal-child-care">
-            <i class="fa-solid fa-hand-holding-medical"></i>
-            Criminal Justice & Corrections Reform
-          </h3>
-          <div id="issueSummary-universal-child-care" class="issue-summary">
-            <p>
-            As Chair of the Assembly Committee on Correction, Erik Dilan leads efforts to bring transparency, accountability, and dignity to New York’s 
-            correctional system. He works to strengthen oversight of correctional facilities, improve conditions for incarcerated individuals, and 
-            expand reentry resources so people can successfully transition back into society. Erik’s approach is grounded in public safety paired with 
-            fairness — advancing reforms that reduce recidivism, support rehabilitation, and uphold the civil rights of all New Yorkers.              
-            <span class="readMore2"><a href="/issues/universal-child-care">Read More</a></span>
-            </p>
-          </div>
-        </div>
+            <div
+              id="panel-housing-tenant-rights"
+              class="issue-panel"
+              role="region"
+              aria-labelledby="heading-housing-tenant-rights"
+            >
+              <p class="issue-copy">
+                Assembly Member Erik Dilan has built his public life around
+                strengthening housing stability, fighting displacement, and
+                protecting tenants from abuse. He supports legislation to
+                criminalize landlord harassment of rent-regulated tenants, rein
+                in speculative flipping, and broaden protections for vulnerable
+                renters, including New Yorkers with disabilities and service
+                animals. Erik treats housing as a basic foundation for family
+                life and community, and he pushes policies that preserve
+                affordability and curb predatory practices.
+              </p>
+            </div>
+          </article>
 
-        <hr class="issue-hr" />
+          <!-- ISSUE 2: Corrections / Criminal Justice -->
+          <article class="issue-card" id="corrections-reform">
+            <button
+              class="issue-toggle"
+              aria-expanded="false"
+              aria-controls="panel-corrections-reform"
+            >
+              <div class="issue-icon-wrap">
+                <i class="fa-solid fa-hand-holding-medical"></i>
+              </div>
+              <div class="issue-header-text">
+                <h2 class="issue-heading">
+                  Criminal Justice & Corrections Reform
+                </h2>
+                <p class="issue-tagline">Accountability, safety, and dignity</p>
+              </div>
+              <span class="issue-chevron">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </button>
 
-        <div class="issueItem">
-          <h3 id="universal-health-care">
-            <i class="fa-solid fa-hand-holding-heart"></i>
-            Economic Equity & Consumer Protections          </h3>
-          <div id="issueSummary-universal-health-care" class="issue-summary">
-            <p>
-        Erik Dilan champions policies that ease financial pressures on working families and protect consumers from unfair economic practices. 
-        His legislative work includes pushing for transparency in credit-reporting, limiting abusive real-estate speculation, and safeguarding 
-        residents from financial exploitation. Through his committee roles, he advocates for affordable utilities, fair insurance practices, and 
-        economic policies that reduce burdens on low- and middle-income households. Erik prioritizes legislation that strengthens economic fairness and 
-        promotes stability for everyday New Yorkers.              
-              <span class="readMore2"><a href="/issues/universal-health-care">Read More</a></span>
-            </p>
-          </div>
-        </div>
+            <div
+              id="panel-corrections-reform"
+              class="issue-panel"
+              role="region"
+              aria-labelledby="heading-corrections-reform"
+            >
+              <p class="issue-copy">
+                As Chair of the Assembly Committee on Correction, Erik Dilan
+                leads efforts to bring transparency, accountability, and a basic
+                standard of dignity to New York’s correctional system. He works
+                to strengthen oversight of facilities, improve conditions for
+                incarcerated people, and expand reentry supports so individuals
+                can successfully return to their communities. Erik’s approach
+                pairs public safety with fairness — advancing reforms that
+                reduce recidivism, support rehabilitation, and uphold civil
+                rights.
+              </p>
+            </div>
+          </article>
 
-        <hr class="issue-hr" />
+          <!-- ISSUE 3: Economic Equity -->
+          <article class="issue-card" id="economic-equity">
+            <button
+              class="issue-toggle"
+              aria-expanded="false"
+              aria-controls="panel-economic-equity"
+            >
+              <div class="issue-icon-wrap">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+              </div>
+              <div class="issue-header-text">
+                <h2 class="issue-heading">
+                  Economic Equity & Consumer Protections
+                </h2>
+                <p class="issue-tagline">Standing up for working families</p>
+              </div>
+              <span class="issue-chevron">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </button>
 
-        <div class="issueItem">
-          <h3 id="decriminalizing-poverty">
-            <i class="fa-solid fa-dollar-sign"></i>
-            Disability Rights & Fair Housing
-          </h3>
-          <div id="issueSummary-decriminalizing-poverty" class="issue-summary">
-            <p>
-            Erik Dilan is a strong advocate for disability rights, especially within the housing system, sponsoring legislation that broadens reasonable 
-            accommodation protections and shields individuals with disabilities from discrimination. His work ensures that tenants who rely on service or 
-            support animals cannot be unfairly denied housing or harassed by landlords. Erik’s commitment reflects a belief that every New Yorker deserves 
-            dignity, safety, and equitable treatment — and that policy must protect those most at risk of being overlooked.              
-            <span class="readMore2"><a href="/issues/decriminalizing-poverty">Read More</a></span>
-            </p>
-          </div>
-        </div>
+            <div
+              id="panel-economic-equity"
+              class="issue-panel"
+              role="region"
+              aria-labelledby="heading-economic-equity"
+            >
+              <p class="issue-copy">
+                Erik Dilan champions policies that ease pressure on working
+                families and guard against unfair economic practices. His
+                legislative work includes pushing for greater transparency in
+                credit reporting, limiting abusive real-estate speculation, and
+                protecting residents from financial exploitation. Through his
+                committee roles, he supports affordable utilities, fair
+                insurance practices, and economic policies that reduce burdens
+                on low- and middle-income households.
+              </p>
+            </div>
+          </article>
 
-        <hr class="issue-hr" />
+          <!-- ISSUE 4: Disability Rights & Fair Housing -->
+          <article class="issue-card" id="disability-rights">
+            <button
+              class="issue-toggle"
+              aria-expanded="false"
+              aria-controls="panel-disability-rights"
+            >
+              <div class="issue-icon-wrap">
+                <i class="fa-solid fa-wheelchair-move"></i>
+              </div>
+              <div class="issue-header-text">
+                <h2 class="issue-heading">Disability Rights & Fair Housing</h2>
+                <p class="issue-tagline">
+                  Dignity and access for every New Yorker
+                </p>
+              </div>
+              <span class="issue-chevron">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </button>
 
-        <div class="issueItem">
-          <h3 id="criminal-justice-reform">
-            <i class="fa-solid fa-balance-scale"></i>
-            Community Investment & Working-Family Investment
-          </h3>
-          <div id="issueSummary-criminal-justice-reform" class="issue-summary">
-            <p>
-            Rooted in decades of public service in North Brooklyn, Erik Dilan consistently fights for investments that uplift working families and 
-            strengthen neighborhood infrastructure. He champions funding for local schools, senior centers, community programs, and public-safety 
-            partnerships while ensuring underserved areas receive their fair share of state resources. Erik’s leadership reflects a deep commitment 
-            to equity and community empowerment — prioritizing policies that improve quality of life, expand opportunity, and ensure that government 
-            works for the people it serves.              
-            <span class="readMore2"><a href="/issues/criminal-justice-reform">Read More</a></span>
-            </p>
-          </div>
-        </div>
+            <div
+              id="panel-disability-rights"
+              class="issue-panel"
+              role="region"
+              aria-labelledby="heading-disability-rights"
+            >
+              <p class="issue-copy">
+                Erik is a strong advocate for disability rights, especially in
+                housing. He has sponsored legislation that broadens reasonable
+                accommodation protections and shields people with disabilities
+                from discrimination and harassment. That includes protections
+                for tenants who rely on service or support animals. His work is
+                driven by a clear belief: every New Yorker deserves dignity,
+                safety, and equal treatment under the law.
+              </p>
+            </div>
+          </article>
 
-        <hr class="issue-hr" />
+          <!-- ISSUE 5: Community & Working-Family Investment -->
+          <article class="issue-card" id="community-investment">
+            <button
+              class="issue-toggle"
+              aria-expanded="false"
+              aria-controls="panel-community-investment"
+            >
+              <div class="issue-icon-wrap">
+                <i class="fa-solid fa-scale-balanced"></i>
+              </div>
+              <div class="issue-header-text">
+                <h2 class="issue-heading">
+                  Community & Working-Family Investment
+                </h2>
+                <p class="issue-tagline">
+                  Delivering resources to North Brooklyn
+                </p>
+              </div>
+              <span class="issue-chevron">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </button>
 
-            </p>
-          </div>
+            <div
+              id="panel-community-investment"
+              class="issue-panel"
+              role="region"
+              aria-labelledby="heading-community-investment"
+            >
+              <p class="issue-copy">
+                Rooted in decades of service in North Brooklyn, Erik Dilan
+                continues to fight for investments that uplift working families
+                and strengthen neighborhood infrastructure. He champions funding
+                for local schools, senior services, community programs, and
+                public-safety partnerships, while pushing to ensure historically
+                underserved areas receive their fair share of state resources.
+                Erik’s focus is simple: government should work for the people it
+                serves and measurably improve quality of life.
+              </p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER (use your standard site footer if you have one) -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <p class="paid-for">
@@ -155,47 +484,81 @@
     </div>
   </footer>
 
-<!-- ======================
-       SCRIPTS
-  ======================= -->
-<script>
-  // Load shared navbar into #site-header
-  fetch('navbar.html')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('site-header').innerHTML = html;
+  <!-- SCRIPTS -->
+  <script>
+    // Accordion behavior for issue cards
+    function setupIssueAccordion() {
+      const cards = document.querySelectorAll('.issue-card');
 
-      // Wire up nav toggle AFTER navbar is injected
-      const navToggle = document.querySelector('.nav-toggle');
-      const mainMenu = document.getElementById('primary-nav');
+      cards.forEach(card => {
+        const toggle = card.querySelector('.issue-toggle');
+        const panel = card.querySelector('.issue-panel');
 
-      if (navToggle && mainMenu) {
-        navToggle.addEventListener('click', () => {
-          const isOpen = mainMenu.classList.toggle('is-open');
-          navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-      }
+        if (!toggle || !panel) return;
 
-      // Highlight active link based on current file
-      const links = document.querySelectorAll('.main-menu .nav-link');
-      const path = window.location.pathname.split('/').pop() || 'index.html';
-
-      links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === path) {
-          link.classList.add('active');
+        // If card is marked open by default, set height
+        if (card.classList.contains('is-open')) {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          toggle.setAttribute('aria-expanded', 'true');
+        } else {
+          panel.style.maxHeight = '0px';
+          toggle.setAttribute('aria-expanded', 'false');
         }
-      });
-    })
-    .catch(err => {
-      console.error('Error loading navbar:', err);
-    });
 
-  // Footer year (optional, if you use it)
-  const yearSpan = document.getElementById('year');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-</script>
+        toggle.addEventListener('click', () => {
+          const isOpen = card.classList.toggle('is-open');
+          if (isOpen) {
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+            toggle.setAttribute('aria-expanded', 'true');
+          } else {
+            panel.style.maxHeight = '0px';
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    }
+
+    // Load shared navbar into #site-header
+    fetch('navbar.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('site-header').innerHTML = html;
+
+        // Burger / mobile toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const mainMenu = document.getElementById('primary-nav');
+
+        if (navToggle && mainMenu) {
+          navToggle.addEventListener('click', () => {
+            const isOpen = mainMenu.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            document.body.classList.toggle('menu-open', isOpen);
+          });
+        }
+
+        // Highlight active nav link
+        const links = document.querySelectorAll('.main-menu .nav-link');
+        const path = window.location.pathname.split('/').pop() || 'index.html';
+
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === path) {
+            link.classList.add('active');
+          }
+        });
+      })
+      .catch(err => {
+        console.error('Error loading navbar:', err);
+      });
+
+    // Footer year
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // Initialize accordion once DOM is ready
+    document.addEventListener('DOMContentLoaded', setupIssueAccordion);
+  </script>
 </body>
 </html>

@@ -15,6 +15,14 @@
   <!-- Replace with your own favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
+  <!-- Font Awesome (for burger icon) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <!-- Your main campaign stylesheet -->
   <link rel="stylesheet" href="style.css" />
 
@@ -108,7 +116,7 @@
             <a role="menuitem" href="news.html" class="nav-link active">News</a>
           </li>
           <li role="none">
-            <a role="menuitem" href="volunteer.html" class="nav-link">Volunteer</a>
+            <a role="menuitem" href="vote.html" class="nav-link">Voter Info</a>
           </li>
           <li role="none">
             <a role="menuitem" href="contact.html" class="nav-link">Contact</a>
@@ -232,9 +240,25 @@
   </footer>
 
   <!-- Simple year script (optional) -->
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<script>
+  // Mobile nav toggle
+  const navToggle = document.querySelector(".nav-toggle");
+  const primaryNav = document.getElementById("primary-nav");
+
+  if (navToggle && primaryNav) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = primaryNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+  }
+
+  // Year in footer
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
+</script>
 
   <!-- Your existing nav JS should already handle the burger / overlay for .nav-toggle -->
 </body>

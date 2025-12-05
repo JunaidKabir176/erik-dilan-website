@@ -151,7 +151,7 @@ a:hover {
    MOBILE OVERLAY MENU
 ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   /* show burger on mobile */
   .nav-toggle {
     display: flex;
@@ -224,6 +224,19 @@ a:hover {
     justify-content: space-between;
   }
 }
+
+  .navbar .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+    .logo img {
+    height: 56px;
+  }
+
+  .nav-toggle {
+    padding: 4px;
+  }
 
 /* Freeze page scroll when overlay is open */
 body.menu-open {
@@ -828,6 +841,99 @@ body.issues-page {
   );
 }
 
+/* =========================
+   VOTER INFORMATION PAGE
+========================= */
+
+body.voter-page {
+  background: #0b1b4f;
+  color: #e5e7eb;
+}
+
+.voter-hero {
+  padding: 56px 0 40px;
+  background: radial-gradient(
+    circle at top left,
+    #2563eb 0%,
+    #0038a8 45%,
+    #0b1b4f 100%
+  );
+}
+
+.voter-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.voter-hero-text h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2.1rem, 4vw, 2.7rem);
+  font-weight: 700;
+}
+
+.voter-hero-text p {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #e5e7eb;
+}
+
+.voter-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.voter-list li {
+  margin-bottom: 6px;
+}
+
+.voter-hero-image {
+  text-align: center;
+}
+
+.voter-hero-image img {
+  max-width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+}
+
+/* Action buttons area */
+.voter-actions {
+  padding: 28px 0 50px;
+  background: #0b1b4f;
+}
+
+.voter-actions-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Reuse .btn styles, just tweak sizing for this page */
+.voter-btn {
+  min-width: 220px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .voter-hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .voter-hero-text {
+    order: 2;
+  }
+
+  .voter-hero-image {
+    order: 1;
+  }
+}
+
 /* ---- Responsive ---- */
 
 @media (max-width: 900px) {
@@ -842,3 +948,27 @@ body.issues-page {
   }
 }
 
+/* Make header full-bleed and logo flush left */
+.site-header {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.site-header .nav-inner {
+  max-width: none;          /* ignore global max-width */
+  margin: 0;                /* no centering */
+  padding-left: 10;          /* remove left padding */
+  padding-right: 20px;      /* optional right padding so menu/items breathe */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Make sure the logo actually hits the edge */
+.site-header .logo {
+  margin: 0;
+}
+
+.site-header .logo img {
+  display: block;
+}

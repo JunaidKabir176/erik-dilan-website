@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Voter Information | Erik Dilan for New York State Assembly</title>
+  <meta
+    name="description"
+    content="Find your poll site, register to vote, and get key voter information for Election Day."
+  />
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="favicon_io_erik/favicon-32x32.png"
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome (for burger icon if needed) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main site styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="voter-page">
+  <!-- Shared navbar gets injected here -->
+  <div id="site-header"></div>
+
+  <main>
+    <!-- HERO / INTRO -->
+    <section class="voter-hero">
+      <div class="container voter-hero-inner">
+        <div class="voter-hero-text">
+          <h1>Voter Information</h1>
+          <p>
+            Make a plan to vote. Use the tools below to find your poll site,
+            check your registration, and make sure your voice is heard on
+            Election Day.
+          </p>
+          <ul class="voter-list">
+            <li>Look up your Election Day poll site</li>
+            <li>Register to vote or update your registration</li>
+            <li>Share these links with family, friends, and neighbors</li>
+          </ul>
+        </div>
+
+        <div class="voter-hero-image">
+          <!-- Replace with your own image file if you have one -->
+          <img
+            src="voter-hero.jpg"
+            alt="Neighbors voting at a NYC poll site"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTION BUTTONS -->
+    <section class="voter-actions">
+      <div class="container voter-actions-inner">
+        <a
+          class="btn btn-primary voter-btn"
+          href="https://vote.nyc/page/find-your-poll-site"
+          target="_blank"
+          rel="noopener"
+        >
+          Find Your Poll Site
+        </a>
+
+        <a
+          class="btn btn-outline voter-btn"
+          href="https://vote.nyc/page/register-vote"
+          target="_blank"
+          rel="noopener"
+        >
+          Register to Vote
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (reuse same markup you have on index.html) -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="paid-for">
+        Paid for by Friends of Erik Dilan
+      </p>
+      <p class="footer-meta">
+        © <span id="year"></span> Erik Dilan for New York State Assembly. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- NAVBAR + FOOTER YEAR SCRIPT -->
+  <script>
+    // Load shared navbar
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("site-header").innerHTML = html;
+
+        // Burger menu wiring
+        const navToggle = document.querySelector(".nav-toggle");
+        const mainMenu = document.getElementById("primary-nav");
+
+        if (navToggle && mainMenu) {
+          navToggle.addEventListener("click", () => {
+            const isOpen = mainMenu.classList.toggle("is-open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            document.body.classList.toggle("menu-open", isOpen);
+          });
+        }
+
+        // Active link highlighting
+        const links = document.querySelectorAll(".main-menu .nav-link");
+        const path = window.location.pathname.split("/").pop() || "index.html";
+
+        links.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href === path) {
+            link.classList.add("active");
+          }
+        });
+      })
+      .catch((err) => console.error("Error loading navbar:", err));
+
+    // Footer year
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>

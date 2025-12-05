@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Contact & Volunteer | Erik Dilan for New York State Assembly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Get in touch with the Erik Dilan campaign or sign up to volunteer in your neighborhood."
+  />
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="favicon_io_erik/favicon-32x32.png"
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome (for burger icon in navbar.html) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main site stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-specific styling -->
+  <style>
+    body.contact-page {
+      background: #0b1b4f;
+      color: #e5e7eb;
+    }
+
+    /* Top intro band */
+    .contact-hero {
+      padding: 52px 0 28px;
+      background: radial-gradient(
+        circle at top left,
+        #2563eb 0%,
+        #0038a8 45%,
+        #0b1b4f 100%
+      );
+    }
+
+    .contact-hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .contact-hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 3.4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #facc15;
+    }
+
+    .contact-hero p {
+      margin: 4px 0 0;
+      font-size: 0.98rem;
+      max-width: 640px;
+      color: #e5e7eb;
+    }
+
+    /* Main layout */
+    .contact-section {
+      padding: 26px 0 48px;
+      background: #0b1b4f;
+    }
+
+    .contact-grid {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Cards */
+    .contact-card,
+    .volunteer-card {
+      background: #001229;
+      border-radius: 18px;
+      border: 1px solid rgba(191, 219, 254, 0.5);
+      padding: 22px 18px 24px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+    }
+
+    .contact-card h2,
+    .volunteer-card h2 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fbbf24;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .contact-card p.lead,
+    .volunteer-card p.lead {
+      font-size: 0.95rem;
+      color: #e5e7eb;
+      margin: 4px 0 14px;
+    }
+
+    .contact-card small,
+    .volunteer-card small {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+
+    /* Form */
+    .contact-form {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .field-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.85rem;
+    }
+
+    .field-group label {
+      color: #e5e7eb;
+    }
+
+    .field-group span.required {
+      color: #fbbf24;
+      margin-left: 3px;
+    }
+
+    .field-group input,
+    .field-group textarea,
+    .field-group select {
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.85);
+      padding: 9px 12px;
+      background: #0b1b4f;
+      color: #e5e7eb;
+      font-size: 0.86rem;
+      font-family: inherit;
+    }
+
+    .field-group textarea {
+      border-radius: 12px;
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .field-group input::placeholder,
+    .field-group textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    /* Volunteer options */
+    .volunteer-options {
+      margin-top: 6px;
+      padding: 10px 10px 8px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .volunteer-options legend {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fbbf24;
+      margin-bottom: 4px;
+    }
+
+    .volunteer-options-list {
+      margin-top: 4px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4px;
+      font-size: 0.86rem;
+    }
+
+    .volunteer-options-list label {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      cursor: pointer;
+      color: #e5e7eb;
+    }
+
+    .volunteer-options-list input[type="checkbox"] {
+      accent-color: #fbbf24;
+    }
+
+    /* Submit button */
+    .contact-submit {
+      margin-top: 8px;
+    }
+
+    .contact-submit button {
+      display: inline-block;
+      padding: 10px 26px;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: linear-gradient(135deg, #fbbf24, #eab308);
+      color: #111827;
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6);
+      transition: background 0.15s ease, transform 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .contact-submit button:hover {
+      background: linear-gradient(135deg, #facc15, #fbbf24);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Right card content */
+    .volunteer-list {
+      list-style: none;
+      margin: 8px 0 14px;
+      padding: 0;
+      font-size: 0.92rem;
+    }
+
+    .volunteer-list li {
+      margin: 4px 0;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .volunteer-list li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      color: #fbbf24;
+      font-size: 0.9rem;
+      top: 1px;
+    }
+
+    .volunteer-note {
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+
+    .contact-alt {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: #cbd5f5;
+    }
+
+    .contact-alt a {
+      color: #fbbf24;
+      text-decoration: none;
+    }
+
+    .contact-alt a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="contact-page">
+  <!-- Shared navbar -->
+  <div id="site-header"></div>
+
+  <main>
+    <!-- Intro band -->
+    <section class="contact-hero">
+      <div class="contact-hero-inner">
+        <h1>Contact & Volunteer</h1>
+        <p>
+          Have a question, idea, or want to help re-elect Assembly Member Erik
+          Dilan? Use the form below to reach the campaign or sign up to volunteer.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="contact-section">
+      <div class="contact-grid">
+        <!-- LEFT: FORM -->
+        <section class="contact-card">
+          <h2>Send a message</h2>
+          <p class="lead">
+            Share your questions, concerns, or let us know how you’d like to help.
+            A member of the campaign team will follow up.
+          </p>
+
+          <!-- Replace `#` with your form handler (Formspree, Netlify, etc.) -->
+          <form
+            class="contact-form"
+            action="#"
+            method="POST"
+          >
+            <div class="field-row">
+              <div class="field-group">
+                <label for="name">
+                  Full Name <span class="required">*</span>
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  placeholder="First and last name"
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="email">
+                  Email <span class="required">*</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label for="phone">Phone (optional)</label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Mobile or home number"
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="zip">
+                  ZIP Code <span class="required">*</span>
+                </label>
+                <input
+                  id="zip"
+                  name="zip"
+                  type="text"
+                  required
+                  placeholder="e.g. 11207"
+                />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="subject">
+                Subject <span class="required">*</span>
+              </label>
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                required
+                placeholder="Reason for contacting the campaign"
+              />
+            </div>
+
+            <div class="field-group">
+              <label for="message">
+                Message <span class="required">*</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Share your question, concern, or message for the campaign."
+              ></textarea>
+            </div>
+
+            <!-- Volunteer interest block -->
+            <fieldset class="volunteer-options">
+              <legend>I'm interested in:</legend>
+              <div class="volunteer-options-list">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="volunteer_interests"
+                    value="door_canvassing"
+                  />
+                  Door-to-door canvassing
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="volunteer_interests"
+                    value="phone_text"
+                  />
+                  Phone or text banking
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="volunteer_interests"
+                    value="events"
+                  />
+                  Helping at community events
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="volunteer_interests"
+                    value="office_support"
+                  />
+                  Office / campaign HQ support
+                </label>
+                <label>
+                  <input
+                    type="checkbox"
+                    name="volunteer_interests"
+                    value="email_updates"
+                  />
+                  Getting email updates from the campaign
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="field-group">
+              <label for="best-time">
+                Best time to reach you (optional)
+              </label>
+              <input
+                id="best-time"
+                name="best_time"
+                type="text"
+                placeholder="e.g. Weekday evenings after 6pm"
+              />
+            </div>
+
+            <div class="contact-submit">
+              <button type="submit">Submit</button>
+            </div>
+
+            <small>
+              By submitting this form, you consent to the campaign contacting you
+              using the information provided.
+            </small>
+          </form>
+        </section>
+
+        <!-- RIGHT: VOLUNTEER INFO -->
+        <section class="volunteer-card" id="volunteer">
+          <h2>Volunteer with Team Erik</h2>
+          <p class="lead">
+            Campaigns are won by neighbors talking to neighbors. Whether you have
+            a few hours a month or time every week, there’s a way to plug in.
+          </p>
+
+          <ul class="volunteer-list">
+            <li>Knock on doors and talk with voters in your neighborhood.</li>
+            <li>Make calls or send texts to remind supporters about key dates.</li>
+            <li>Help staff tables at community events, forums, and block parties.</li>
+            <li>Support office tasks like data entry, mailings, and logistics.</li>
+          </ul>
+
+          <p class="volunteer-note">
+            Use the form on the left to tell us how you’d like to help. A member
+            of the volunteer team will follow up with next steps and upcoming
+            opportunities.
+          </p>
+
+          <div class="contact-alt">
+            Prefer email? Reach us at
+            <a href="mailto:info@erikdilancampaign.org">
+              info@erikdilancampaign.org
+            </a>
+            and include your name, neighborhood, and how you’d like to get
+            involved.
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (same pattern as other pages) -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="paid-for">
+        Paid for by Friends of Erik Dilan
+      </p>
+      <p class="footer-meta">
+        © <span id="year"></span> Erik Dilan for New York State Assembly. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Load shared navbar
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("site-header").innerHTML = html;
+
+        const navToggle = document.querySelector(".nav-toggle");
+        const mainMenu = document.getElementById("primary-nav");
+
+        if (navToggle && mainMenu) {
+          navToggle.addEventListener("click", () => {
+            const isOpen = mainMenu.classList.toggle("is-open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            document.body.classList.toggle("menu-open", isOpen);
+          });
+        }
+
+        // Highlight active nav link
+        const links = document.querySelectorAll(".main-menu .nav-link");
+        const path = window.location.pathname.split("/").pop() || "index.html";
+        links.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href === path) {
+            link.classList.add("active");
+          }
+        });
+      })
+      .catch((err) => console.error("Error loading navbar:", err));
+
+    // Footer year
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) {
+      yearSpan.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
