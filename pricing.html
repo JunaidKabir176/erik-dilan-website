@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helix Studio | Pricing & Packages</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<!-- NAVBAR (Superside-style mega menu + mobile drawer) -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Helix Studio home">
+      <img src="logo.png" alt="Helix Studio Logo">
+    </a>
+
+    <!-- Mobile toggle (drawer) -->
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul id="primary-nav" class="main-menu" role="menubar">
+
+      <li role="none">
+        <a role="menuitem" href="about.html">About</a>
+    </li>
+
+
+      <!-- SERVICES w/ mega menu -->
+      <li role="none" class="has-mega">
+        <a role="menuitem" href="services.html" aria-haspopup="true" aria-expanded="false" class="services-link">
+          Services
+          <i class="fa-solid fa-chevron-down caret"></i>
+        </a>
+
+        <!-- Mega menu panel -->
+        <div class="mega-menu" role="menu" aria-label="Services submenu">
+          <div class="mega-inner">
+
+            <a class="mega-card" href="graphic-design.html" role="menuitem">
+              <div class="mega-icon"><i class="fa-solid fa-pen-nib"></i></div>
+              <div>
+                <h4>Graphic Design</h4>
+                <p>Brand systems, decks, ads, and visuals that convert.</p>
+              </div>
+            </a>
+
+            <a class="mega-card" href="video-editing.html" role="menuitem">
+              <div class="mega-icon"><i class="fa-solid fa-film"></i></div>
+              <div>
+                <h4>Video Editing</h4>
+                <p>Short-form, long-form, motion, and storytelling cuts.</p>
+              </div>
+            </a>
+
+            <a class="mega-card" href="social-campaigns.html" role="menuitem">
+              <div class="mega-icon"><i class="fa-solid fa-bullhorn"></i></div>
+              <div>
+                <h4>Social Campaigns</h4>
+                <p>Strategy + content + analytics to scale engagement.</p>
+              </div>
+            </a>
+
+            <div class="mega-side">
+              <h5>Not sure where to start?</h5>
+              <p>Get a fast scope and recommended package in a 15-minute call.</p>
+              <a href="pricing.html" class="btn btn-light btn-block">See Packages</a>
+              <a href="index.html#contact" class="btn btn-primary btn-block">Book a Call</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+          <li role="none">
+        <a role="menuitem" href="our-work.html">Our work</a>
+    </li>
+
+      
+      <li role="none">
+        <a role="menuitem" href="pricing.html">Pricing</a>
+      </li>
+
+      <li role="none">
+        <a role="menuitem" href="index.html#contact" class="btn btn-primary">Book a Call</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+  <!-- PRICING HERO -->
+  <header class="hero hero-pricing">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Packages & Pricing</p>
+        <h1>Choose the stack that fits your goals.</h1>
+        <p class="lead">
+          Simple tiers for fast onboarding — or build a custom plan if you need something specific.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <!-- PACKAGES -->
+  <section class="section">
+    <div class="container">
+      <div class="cards-3 pricing-grid">
+
+        <!-- Starter -->
+        <article class="card pricing-card">
+          <h3>Starter</h3>
+          <p class="price">$799 <span>/mo</span></p>
+          <p class="muted">Target Client: Early-stage startups, solo entrepreneurs, small marketing teams.</p>
+          <ul class="checklist">
+            <li>Assets: Up to 6 design assets/month</li>
+            <li>Turnaround Per Asset: 2–3 days turnaround</li>
+            <li>Monthly Output: 6 assets delivered within 8-10 business days total</li>
+            <li>Brand-consistent templates</li>
+            <li>Email + WhatsApp support</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-primary btn-block">Get Starter Package</a>
+        </article>
+
+        <!-- Growth -->
+        <article class="card pricing-card featured">
+          <h3>Growth</h3>
+          <p class="price">$1,699 <span>/mo</span></p>
+          <p class="muted">Target Client: Growing brands, creative agencies, e-commerce.</p>
+          <ul class="checklist">
+            <li>10–12 static or animated assets/month</li>
+            <li>Up to 4 short videos per month (15-60 seconds)</li>
+            <li>Static Content: 2-3 business days
+            <li>Animated Content: 3-5 business days each</li>
+            <li>Weekly creative sync</li>
+            <li>Priority queue</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-primary btn-block">Get Growth Package</a>
+        </article>
+
+        <!-- Scale -->
+        <article class="card pricing-card">
+          <h3>Scale</h3>
+          <p class="price">$2,999 <span>/mo</span></p>
+          <p class="muted">Established brands, B2B firms, agencies with large content needs.</p>
+          <ul class="checklist">
+            <li>Unlimited requests (reasonable use) - Avg 20-25 itms/mo</li>
+            <li>Turnaround Per Asset: 2–3 days turnaround</li>
+            <li>Design + video + social campaigns</li>
+            <li>Performance tracking</li>
+            <li>Dedicated creative lead</li>
+          </ul>
+          <a href="index.html#contact" class="btn btn-primary btn-block">Get Scale Package</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCOPE / TURNAROUND -->
+  <section class="section alt">
+    <div class="container split">
+      <div>
+        <h2>What’s included</h2>
+        <p>
+          Every package includes strategy alignment, brand consistency, and clear deliverables.
+          You’ll always know what’s in scope and when to expect it.
+        </p>
+
+        <div class="bullets">
+          <div class="bullet">
+            <h4>Turnaround</h4>
+            <p>Typical first draft in 48 hours for design, 3–5 days for video.</p>
+          </div>
+          <div class="bullet">
+            <h4>Revisions</h4>
+            <p>Included revisions until it’s right — fast loops, no friction.</p>
+          </div>
+          <div class="bullet">
+            <h4>Custom requests</h4>
+            <p>Need a special campaign or library build? We’ll scope it clearly.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-box">
+        <h3>Custom plan?</h3>
+        <p class="muted">
+          If you need a blended scope or higher volume, we’ll send a quote within 24 hours.
+        </p>
+        <a href="index.html#contact" class="btn btn-primary btn-block">Request Custom Quote</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

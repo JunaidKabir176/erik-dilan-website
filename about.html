@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helix Studio | Bold Ideas. Measurable Outcomes</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+  <!-- Favicon (favicon.ico is in Main Html folder) -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+
+  <!-- CSS (style.css is in Main Html/css folder) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+  <body class="home-page">
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Helix Studio home">
+      <img src="logo.png" alt="Helix Studio Logo">
+    </a>
+
+    <!-- Mobile toggle (drawer) -->
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul id="primary-nav" class="main-menu" role="menubar">
+
+      <li role="none">
+       <a role="menuitem" href="about.html">About</a>
+    </li>
+
+
+      <!-- SERVICES w/ mega menu -->
+      <li role="none" class="has-mega">
+        <a role="menuitem" href="services.html" aria-haspopup="true" aria-expanded="false" class="services-link">
+          Services
+          <i class="fa-solid fa-chevron-down caret"></i>
+        </a>
+
+        <!-- Mega menu panel -->
+        <div class="mega-menu" role="menu" aria-label="Services submenu">
+          <div class="mega-inner">
+
+        <a class="mega-card" href="./graphic-design.html" role="menuitem">
+        <div class="mega-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <div class="mega-text">
+          <h4>Graphic Design</h4>
+           <p>Brand visuals and communication assets for consistent identity.</p>
+  </div>
+</a>
+
+        <a class="mega-card compact" href="video-editing.html" role="menuitem">
+          <div class="mega-icon"><i class="fa-solid fa-film"></i></div>
+        <div class="mega-text">
+    <h4>Video Editing</h4>
+    <p>High-impact edits optimized for social, web, and campaigns.</p>
+  </div>
+</a>
+
+    <a class="mega-card compact" href="social-campaigns.html" role="menuitem">
+    <div class="mega-icon"><i class="fa-solid fa-bullhorn"></i></div>
+    <div class="mega-text">
+    <h4>Social Campaigns</h4>
+    <p>Content, calendars, and analytics that grow reach and conversion.</p>
+  </div>
+</a>
+
+            <div class="mega-side">
+              <h5>Not sure where to start?</h5>
+              <p>Get a fast scope and recommended package in a 15-minute call.</p>
+              <a href="pricing.html" class="btn btn-light btn-block">See Packages</a>
+              <a href="./graphic-design.html" class="btn btn-primary">Learn More</a>
+              <a href="index.html#contact" class="btn btn-primary btn-block">Book a Call</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+                <li role="none">
+  <a role="menuitem" href="our-work.html">Our work</a>
+</li>
+
+      <li role="none">
+        <a role="menuitem" href="pricing.html">Pricing</a>
+      </li>
+
+      <li role="none">
+        <a role="menuitem" href="index.html#contact" class="btn btn-primary">Book a Call</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero">
+    <div class="container page-hero-inner">
+      <div>
+        <h1>About Helix Studio</h1>
+        <p class="lead">
+          We’re a full-stack creative partner helping organizations elevate brand identity,
+          streamline digital presence, and drive measurable engagement.
+        </p>
+      </div>
+      <div class="hero-card">
+        <div class="metric">
+          <h3>Design</h3>
+          <p>Brand + digital assets</p>
+        </div>
+        <div class="metric">
+          <h3>Video</h3>
+          <p>Short & long form edits</p>
+        </div>
+        <div class="metric">
+          <h3>Social</h3>
+          <p>Campaigns + analytics</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OWNERS / TEAM -->
+  <section class="section">
+    <div class="container split">
+      <div>
+        <h2>Who We Are</h2>
+        <p>
+          Helix Studio is led by a small, senior team of creative operators.
+          We combine strategy, production, and execution so clients don’t have to manage
+          multiple vendors.
+        </p>
+
+        <div class="bullets">
+          <div class="bullet">
+            <h4>Owner / Creative Director</h4>
+            <p><strong>[Your Name]</strong> — Placeholder bio (add 2–3 lines on background, strengths, niche).</p>
+          </div>
+          <div class="bullet">
+            <h4>Owner / Growth & Campaign Lead</h4>
+            <p><strong>[Partner Name]</strong> — Placeholder bio (focus on campaigns, analytics, and client success).</p>
+          </div>
+          <div class="bullet">
+            <h4>Extended Creative Bench</h4>
+            <p>We scale with vetted designers and editors when your workload spikes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="value-box">
+        <h3>What We’re About</h3>
+        <ul class="checklist">
+          <li>High-quality creative with real business outcomes</li>
+          <li>Fast delivery without cutting corners</li>
+          <li>Consistent brand voice across channels</li>
+          <li>Performance measurement baked in</li>
+        </ul>
+        <a href="index.html#contact" class="btn btn-primary btn-block">Talk to the Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION / VISION -->
+  <section class="section alt">
+    <div class="container cards-3">
+      <article class="card">
+        <h3>Mission</h3>
+        <p>
+          To serve as a full-stack creative partner that delivers design, video, and social
+          campaigns that sharpen brand identity and drive measurable engagement.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Vision</h3>
+        <p>
+          To be the go-to creative growth engine for organizations that want consistent,
+          high-performing content without agency friction or overhead.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>What Success Looks Like</h3>
+        <p>
+          Cleaner brands, higher retention, stronger reach, and teams freed up to focus on
+          their core mission.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- GUIDING PRINCIPLES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Guiding Principles</h2>
+        <p>How we operate with clients, every time.</p>
+      </div>
+
+      <div class="cards-3">
+        <article class="card">
+          <h3>Clarity Over Complexity</h3>
+          <p>We simplify the creative process so you always know what’s happening and why.</p>
+        </article>
+
+        <article class="card">
+          <h3>Craft With Speed</h3>
+          <p>Fast turnaround is useless without quality. We deliver both.</p>
+        </article>
+
+        <article class="card">
+          <h3>Performance First</h3>
+          <p>Creative is only valuable if it works. We track results and improve each iteration.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Helix Studio Logo">
+        <p>Full-stack creative services for teams that need speed and impact.</p>
+      </div>
+
+      <div class="footer-cols">
+        <div>
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Services Overview</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="graphic-design.html">Graphic Design</a></li>
+            <li><a href="video-editing.html">Video Editing</a></li>
+            <li><a href="social-campaigns.html">Social Campaigns</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>Email: hello@helixstudio.com</li>
+            <li>NYC • Remote Nationwide</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <small>© <span id="year"></span> Helix Studio. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

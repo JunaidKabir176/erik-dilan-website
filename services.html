@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | Helix Studio</title>
+
+<!-- FONTS-->  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo" aria-label="Helix Studio home">
+      <img src="logo.png" alt="Helix Studio Logo">
+    </a>
+
+    <!-- Mobile toggle (drawer) -->
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul id="primary-nav" class="main-menu" role="menubar">
+
+      <li role="none">
+       <a role="menuitem" href="about.html">About</a>
+    </li>
+
+
+      <!-- SERVICES w/ mega menu -->
+      <li role="none" class="has-mega">
+        <a role="menuitem" href="services.html" aria-haspopup="true" aria-expanded="false" class="services-link">
+          Services
+          <i class="fa-solid fa-chevron-down caret"></i>
+        </a>
+
+        <!-- Mega menu panel -->
+        <div class="mega-menu" role="menu" aria-label="Services submenu">
+          <div class="mega-inner">
+
+        <a class="mega-card" href="./graphic-design.html" role="menuitem">
+        <div class="mega-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <div class="mega-text">
+          <h4>Graphic Design</h4>
+           <p>Brand visuals and communication assets for consistent identity.</p>
+  </div>
+</a>
+
+        <a class="mega-card compact" href="video-editing.html" role="menuitem">
+          <div class="mega-icon"><i class="fa-solid fa-film"></i></div>
+        <div class="mega-text">
+    <h4>Video Editing</h4>
+    <p>High-impact edits optimized for social, web, and campaigns.</p>
+  </div>
+</a>
+
+    <a class="mega-card compact" href="social-campaigns.html" role="menuitem">
+    <div class="mega-icon"><i class="fa-solid fa-bullhorn"></i></div>
+    <div class="mega-text">
+    <h4>Social Campaigns</h4>
+    <p>Content, calendars, and analytics that grow reach and conversion.</p>
+  </div>
+</a>
+
+            <div class="mega-side">
+              <h5>Not sure where to start?</h5>
+              <p>Get a fast scope and recommended package in a 15-minute call.</p>
+              <a href="pricing.html" class="btn btn-light btn-block">See Packages</a>
+              <a href="./graphic-design.html" class="btn btn-primary">Learn More</a>
+              <a href="index.html#contact" class="btn btn-primary btn-block">Book a Call</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+                <li role="none">
+  <a role="menuitem" href="our-work.html">Our work</a>
+</li>
+
+      <li role="none">
+        <a role="menuitem" href="pricing.html">Pricing</a>
+      </li>
+
+      <li role="none">
+        <a role="menuitem" href="index.html#contact" class="btn btn-primary">Book a Call</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- PAGE HEADER -->
+  <header class="section alt">
+    <div class="container">
+      <h1>Our Creative Services</h1>
+      <p>One partner for all your design, video, and digital marketing needs.</p>
+    </div>
+  </header>
+
+  <!-- SERVICE BLOCKS -->
+  <section class="section">
+    <div class="container cards-3">
+
+      <!-- Graphic Design -->
+      <article class="card">
+        <div class="card-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <h3>Graphic Design</h3>
+        <p>Brand identity, pitch decks, web graphics, ads, and social content.</p>
+        <a href="graphic-design.html" class="btn btn-primary">Learn More</a>
+      </article>
+
+      <!-- Video Editing -->
+      <article class="card">
+        <div class="card-icon"><i class="fa-solid fa-film"></i></div>
+        <h3>Video Editing</h3>
+        <p>Reels, TikToks, YouTube edits, event recaps, and motion graphics.</p>
+        <a href="video-editing.html" class="btn btn-primary">Learn More</a>
+      </article>
+
+      <!-- Social Media Campaigns -->
+      <article class="card">
+        <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
+        <h3>Social Media Campaigns</h3>
+        <p>Content calendars, campaign planning, analytics, and growth systems.</p>
+        <a href="social-campaigns.html" class="btn btn-primary">Learn More</a>
+      </article>
+
+    </div>
+  </section>
+
+</body>
+</html>

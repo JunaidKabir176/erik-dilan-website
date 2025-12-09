@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Work | Helix Studio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body class="work-page">
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="Helix Studio Logo">
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="main-menu">
+      <li><a href="about.html">About</a></li>
+
+      <!-- SERVICES w/ mega menu -->
+      <li role="none" class="has-mega">
+        <a role="menuitem" href="services.html" aria-haspopup="true" aria-expanded="false" class="services-link">
+          Services
+          <i class="fa-solid fa-chevron-down caret"></i>
+        </a>
+
+        <!-- Mega menu panel -->
+        <div class="mega-menu" role="menu" aria-label="Services submenu">
+          <div class="mega-inner">
+
+        <a class="mega-card" href="./graphic-design.html" role="menuitem">
+        <div class="mega-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <div class="mega-text">
+          <h4>Graphic Design</h4>
+           <p>Brand visuals and communication assets for consistent identity.</p>
+  </div>
+</a>
+
+        <a class="mega-card compact" href="video-editing.html" role="menuitem">
+          <div class="mega-icon"><i class="fa-solid fa-film"></i></div>
+        <div class="mega-text">
+    <h4>Video Editing</h4>
+    <p>High-impact edits optimized for social, web, and campaigns.</p>
+  </div>
+</a>
+
+    <a class="mega-card compact" href="social-campaigns.html" role="menuitem">
+    <div class="mega-icon"><i class="fa-solid fa-bullhorn"></i></div>
+    <div class="mega-text">
+    <h4>Social Campaigns</h4>
+    <p>Content, calendars, and analytics that grow reach and conversion.</p>
+  </div>
+</a>
+
+            <div class="mega-side">
+              <h5>Not sure where to start?</h5>
+              <p>Get a fast scope and recommended package in a 15-minute call.</p>
+              <a href="pricing.html" class="btn btn-light btn-block">See Packages</a>
+              <a href="./graphic-design.html" class="btn btn-primary">Learn More</a>
+              <a href="index.html#contact" class="btn btn-primary btn-block">Book a Call</a>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li><a href="our-work.html" class="active">Our work</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="index.html#contact" class="btn btn-primary">Book a Call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="section alt">
+  <div class="container">
+    <p class="eyebrow">Our Work</p>
+    <h1>Creative shipped at scale for any need</h1>
+    <p>
+      Explore real examples of design systems, video campaigns, and multi-channel social work
+      delivered for enterprise, social campaigns and mission-driven teams.
+    </p>
+  </div>
+</header>
+
+<!-- PARTNER PILL NAV -->
+<section class="section">
+  <div class="container">
+<div class="work-partners-bar">
+  <button class="partner-pill is-active" data-partner="erik">Erik M. Dilan</button>
+  <button class="partner-pill" data-partner="nonprofit">MUNA Social Services</button>
+  <button class="partner-pill" data-partner="enterprise">TBD</button>
+  <button class="partner-pill" data-partner="startup">TBD</button>
+</div>
+
+    <div class="work-featured">
+
+      <!-- Social Campaign -->
+<article class="work-case is-active" id="erik">
+  <div class="work-case-main">
+    <h3>End-to-end social content engine for voter outreach</h3>
+    <p>
+      We built a repeatable content system for Erik’s campaign: structured shoot days,
+      rapid edit templates, and a publishing calendar wired to key events and deadlines.
+    </p>
+    <ul class="results">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <div class="work-case-visual">
+    <!-- Example video embed -->
+    <video controls poster="img/erik-thumb.jpg" style="width:100%; border-radius:14px;">
+      <source src="video/erik-campaign-reel.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</article>
+
+      <!-- Enterprise -->
+      <article class="work-case" data-partner="enterprise">
+        <div class="work-case-main">
+          <h3>Executive storytelling for enterprise accounts</h3>
+          <p>
+            Unified visual identity for QBRs, board reports, and investor-facing materials.
+          </p>
+          <ul class="results">
+            <li>Shared slide master system</li>
+            <li>Data-viz standards</li>
+            <li>Faster turnaround</li>
+          </ul>
+        </div>
+
+        <div class="work-case-visual">
+          <div class="work-thumb-alt">Executive decks and narrative architecture.</div>
+        </div>
+      </article>
+
+      <!-- Startup -->
+      <article class="work-case" data-partner="startup">
+        <div class="work-case-main">
+          <h3>Brand + launch kit for an early-stage startup</h3>
+          <p>
+            From naming → brand → product visuals → investor assets for a startup gearing up for launch.
+          </p>
+          <ul class="results">
+            <li>New brand identity system</li>
+            <li>Marketing site</li>
+            <li>Investor deck</li>
+          </ul>
+        </div>
+
+        <div class="work-case-visual">
+          <div class="work-thumb-alt">Brand foundations and launch content.</div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- MARQUEE -->
+    <div class="our-work-marquee">
+      <div class="our-work-marquee-track">
+        <span class="our-work-marquee-pill">Social Campaigns</span>
+        <span class="our-work-marquee-pill">Enterprise</span>
+        <span class="our-work-marquee-pill">Startups</span>
+        <span class="our-work-marquee-pill">Marketplaces</span>
+        <span class="our-work-marquee-pill">Nonprofits</span>
+
+        <!-- Duplicate loop -->
+        <span class="our-work-marquee-pill">Social Campaigns</span>
+        <span class="our-work-marquee-pill">Enterprise</span>
+        <span class="our-work-marquee-pill">Startups</span>
+        <span class="our-work-marquee-pill">Marketplaces</span>
+        <span class="our-work-marquee-pill">Nonprofits</span>
+      </div>
+    </div>
+
+    <div class="center-cta">
+      <a href="index.html#contact" class="btn btn-primary">Start a project</a>
+    </div>
+
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>
