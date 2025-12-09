@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <link rel="icon" type="image/png" href="favicon_io_erik/favicon-32x32.png">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -61,7 +62,7 @@
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: #fbbf24;
+      color: #c4b5fd;
       margin-bottom: 6px;
     }
 
@@ -96,18 +97,35 @@
       color: #e5e7eb;
     }
 
-    /* GRID / CARD LAYOUT */
-    .issues-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
+/* GRID / CARD LAYOUT */
+.issues-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
 
-    @media (max-width: 900px) {
-      .issues-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+/* Two columns on desktop */
+.issue-card {
+  background: #001229;
+  border-radius: 18px;
+  border: 1px solid rgba(191, 219, 254, 0.55);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+  flex: 1 1 calc(50% - 11px);  /* two columns */
+  align-self: flex-start;       /* card height = its content, not row */
+}
+
+@media (max-width: 900px) {
+  .issues-grid {
+    display: block;   /* stack cards */
+  }
+
+  .issue-card {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
 
     .issue-card {
       background: #001229;
@@ -148,7 +166,7 @@
     }
 
     .issue-toggle:focus-visible {
-      outline: 2px solid #fbbf24;
+      outline: 2px solid #c4b5fd;
       outline-offset: 3px;
     }
 
@@ -159,7 +177,7 @@
       border-radius: 50%;
       background: radial-gradient(
         circle at 30% 0%,
-        #fbbf24 0%,
+        #c4b5fd 0%,
         #2563eb 40%,
         #0b1b4f 90%
       );
@@ -184,7 +202,7 @@
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: #fbbf24;
+      color: #c4b5fd;
     }
 
     .issue-tagline {
@@ -210,25 +228,23 @@
       color: #e5e7eb;
     }
 
-    .issue-card.is-open .issue-chevron i {
-      transform: rotate(180deg);
-    }
+/* COLLAPSIBLE PANEL */
+.issue-panel {
+  position: relative;
+  z-index: 1;
+  padding: 0 18px 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.25s ease, opacity 0.25s ease, padding-bottom 0.25s ease;
+}
 
-    /* COLLAPSIBLE PANEL */
-    .issue-panel {
-      position: relative;
-      z-index: 1;
-      padding: 0 18px 0;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.25s ease, opacity 0.25s ease;
-    }
-
-    .issue-card.is-open .issue-panel {
-      opacity: 1;
-      padding-bottom: 16px;
-    }
+/* When the card is open, only then expand the panel */
+.issue-card.is-open .issue-panel {
+  max-height: 500px; /* big enough for the content */
+  opacity: 1;
+  padding-bottom: 16px;
+}
 
     .issue-copy {
       margin: 0;
@@ -485,80 +501,66 @@
   </footer>
 
   <!-- SCRIPTS -->
-  <script>
-    // Accordion behavior for issue cards
-    function setupIssueAccordion() {
-      const cards = document.querySelectorAll('.issue-card');
+<script>
+  function setupIssueAccordion() {
+    const cards = document.querySelectorAll('.issue-card');
 
-      cards.forEach(card => {
-        const toggle = card.querySelector('.issue-toggle');
-        const panel = card.querySelector('.issue-panel');
+    cards.forEach(card => {
+      const toggle = card.querySelector('.issue-toggle');
+      if (!toggle) return;
 
-        if (!toggle || !panel) return;
+      // Ensure all start closed
+      card.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
 
-        // If card is marked open by default, set height
-        if (card.classList.contains('is-open')) {
-          panel.style.maxHeight = panel.scrollHeight + 'px';
-          toggle.setAttribute('aria-expanded', 'true');
-        } else {
-          panel.style.maxHeight = '0px';
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-
-        toggle.addEventListener('click', () => {
-          const isOpen = card.classList.toggle('is-open');
-          if (isOpen) {
-            panel.style.maxHeight = panel.scrollHeight + 'px';
-            toggle.setAttribute('aria-expanded', 'true');
-          } else {
-            panel.style.maxHeight = '0px';
-            toggle.setAttribute('aria-expanded', 'false');
-          }
-        });
+      toggle.addEventListener('click', () => {
+        const isOpen = card.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
-    }
+    });
+  }
 
-    // Load shared navbar into #site-header
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('site-header').innerHTML = html;
+  // Load shared navbar into #site-header
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('site-header').innerHTML = html;
 
-        // Burger / mobile toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const mainMenu = document.getElementById('primary-nav');
+      // Burger / mobile toggle
+      const navToggle = document.querySelector('.nav-toggle');
+      const mainMenu = document.getElementById('primary-nav');
 
-        if (navToggle && mainMenu) {
-          navToggle.addEventListener('click', () => {
-            const isOpen = mainMenu.classList.toggle('is-open');
-            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            document.body.classList.toggle('menu-open', isOpen);
-          });
-        }
-
-        // Highlight active nav link
-        const links = document.querySelectorAll('.main-menu .nav-link');
-        const path = window.location.pathname.split('/').pop() || 'index.html';
-
-        links.forEach(link => {
-          const href = link.getAttribute('href');
-          if (href === path) {
-            link.classList.add('active');
-          }
+      if (navToggle && mainMenu) {
+        navToggle.addEventListener('click', () => {
+          const isOpen = mainMenu.classList.toggle('is-open');
+          navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          document.body.classList.toggle('menu-open', isOpen);
         });
-      })
-      .catch(err => {
-        console.error('Error loading navbar:', err);
+      }
+
+      // Highlight active nav link
+      const links = document.querySelectorAll('.main-menu .nav-link');
+      const path = window.location.pathname.split('/').pop() || 'index.html';
+
+      links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === path) {
+          link.classList.add('active');
+        }
       });
+    })
+    .catch(err => {
+      console.error('Error loading navbar:', err);
+    });
 
-    // Footer year
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
+  // Footer year
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 
-    // Initialize accordion once DOM is ready
-    document.addEventListener('DOMContentLoaded', setupIssueAccordion);
-  </script>
+  // Initialize accordion once DOM is ready
+  document.addEventListener('DOMContentLoaded', setupIssueAccordion);
+</script>
 </body>
 </html>
