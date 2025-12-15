@@ -1083,3 +1083,10 @@ body.voter-page {
 .site-header .logo img {
   display: block;
 }
+
+/* Center the 4th "Connect on Social Media" panel on desktop */
+@media (min-width: 900px) {
+  .panel-card--social {
+    grid-column: 2; /* Middle column */
+  }
+}
