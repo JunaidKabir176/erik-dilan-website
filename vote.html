@@ -10,14 +10,10 @@
     content="Find your poll site, register to vote, and get key voter information for Election Day."
   />
 
-  <!-- Favicon -->
-  <link
-    rel="icon"
-    type="image/png"
-    href="favicon_io_erik/favicon-32x32.png"
-  />
+  <!-- Favicon (keep ONE favicon; duplicates can cause weirdness) -->
+  <link rel="icon" type="image/png" href="website-logo-512x512.jpg" />
 
-  <!-- Fonts -->
+  <!-- Fonts (match news.html exactly) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -25,7 +21,7 @@
     rel="stylesheet"
   />
 
-  <!-- Font Awesome (for burger icon if needed) -->
+  <!-- Font Awesome (match news.html exactly) -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -33,15 +29,61 @@
     referrerpolicy="no-referrer"
   />
 
- <link rel="icon" type="image/png" href="website-logo-512x512.jpg">
-
-
   <!-- Main site styles -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Page-only safety patch (no style.css changes) -->
+  <style>
+    /* If any page-specific CSS is overriding navbar padding, this forces it to match */
+    body.voter-page .navbar .container.nav-inner {
+      padding-left: 20px !important;
+      padding-right: 35px !important;
+    }
+  </style>
 </head>
+
 <body class="voter-page">
-  <!-- Shared navbar gets injected here -->
-  <div id="site-header"></div>
+
+  <!-- ✅ Use the SAME navbar markup as news.html (no fetch injection) -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="container nav-inner">
+        <a href="index.html" class="logo">
+          <img src="website-logo-512x512.jpg" alt="Website Logo">
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul id="primary-nav" class="main-menu" role="menubar">
+          <li role="none">
+            <a role="menuitem" href="WhoisErik.html" class="nav-link">Who is Erik?</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="issues.html" class="nav-link">Issues</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="news.html" class="nav-link">News</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="vote.html" class="nav-link active">Voter Info</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="contact.html" class="nav-link">Contact</a>
+          </li>
+          <li role="none">
+            <a role="menuitem" href="contribute.html" class="nav-link nav-cta">Contribute</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
   <main>
     <!-- HERO / INTRO -->
@@ -62,11 +104,7 @@
         </div>
 
         <div class="voter-hero-image">
-          <!-- Replace with your own image file if you have one -->
-          <img
-            src="voter-hero.jpg"
-            alt="Neighbors voting at a NYC poll site"
-          />
+          <img src="voter-hero.jpg" alt="Neighbors voting at a NYC poll site" />
         </div>
       </div>
     </section>
@@ -95,50 +133,28 @@
     </section>
   </main>
 
-  <!-- FOOTER (reuse same markup you have on index.html) -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="paid-for">
-        Paid for by Friends of Erik Dilan
-      </p>
+      <p class="paid-for">Paid for by Friends of Erik Dilan</p>
       <p class="footer-meta">
         © <span id="year"></span> Erik Dilan for New York State Assembly. All rights reserved.
       </p>
     </div>
   </footer>
 
-  <!-- NAVBAR + FOOTER YEAR SCRIPT -->
+  <!-- ✅ Same JS pattern as news.html -->
   <script>
-    // Load shared navbar
-    fetch("navbar.html")
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("site-header").innerHTML = html;
+    // Mobile nav toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const primaryNav = document.getElementById("primary-nav");
 
-        // Burger menu wiring
-        const navToggle = document.querySelector(".nav-toggle");
-        const mainMenu = document.getElementById("primary-nav");
-
-        if (navToggle && mainMenu) {
-          navToggle.addEventListener("click", () => {
-            const isOpen = mainMenu.classList.toggle("is-open");
-            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-            document.body.classList.toggle("menu-open", isOpen);
-          });
-        }
-
-        // Active link highlighting
-        const links = document.querySelectorAll(".main-menu .nav-link");
-        const path = window.location.pathname.split("/").pop() || "index.html";
-
-        links.forEach((link) => {
-          const href = link.getAttribute("href");
-          if (href === path) {
-            link.classList.add("active");
-          }
-        });
-      })
-      .catch((err) => console.error("Error loading navbar:", err));
+    if (navToggle && primaryNav) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = primaryNav.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        document.body.classList.toggle("menu-open", isOpen);
+      });
+    }
 
     // Footer year
     const yearSpan = document.getElementById("year");

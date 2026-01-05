@@ -28,10 +28,6 @@ img {
   display: block;
 }
 
-.logo img {
-  width: auto;
-  height: auto;
-}
 
 a {
   color: inherit;
@@ -42,18 +38,15 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Container helper */
-
-.container {
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
 /* =========================
-   NAVBAR – BASE
+   NAVBAR — CLEAN SINGLE SOURCE OF TRUTH
 ========================= */
+
+.site-header,
+.site-header * {
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
 
 .site-header {
   background: #f5f5f7;
@@ -61,11 +54,27 @@ a:hover {
 }
 
 .navbar {
+  background: #c4b5fd;
   border-bottom: 1px solid #e5e7eb;
-  background: #c4b5fd; 
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+/* Global container (keep your site default) */
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Navbar should be full-bleed (not constrained) */
+.navbar .container {
+  max-width: none;
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .nav-inner {
@@ -83,25 +92,25 @@ a:hover {
   display: block;
 }
 
-/* Toggle button */
+/* Burger toggle (hidden desktop, shown mobile) */
 .nav-toggle {
   border: none;
   background: transparent;
   color: #111827;
   font-size: 1.4rem;
   cursor: pointer;
-  padding: 0;
+  padding: 4px;
   line-height: 1;
-  display: none;              /* hidden on desktop */
-  align-items: center;               /* above overlay menu */
+  display: none;
+  align-items: center;
 }
 
-/* Desktop / default nav layout */
+/* Desktop menu */
 .main-menu {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;                /* visible on desktop */
+  display: flex;
   gap: 1.5rem;
   align-items: center;
 }
@@ -122,72 +131,88 @@ a:hover {
   transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.nav-link:hover {
-  color: #0038a8;
-  border-bottom-color: #0038a8;
-}
-
+.nav-link:hover,
 .nav-link.active {
   color: #0038a8;
   border-bottom-color: #0038a8;
 }
 
-/* Contribute button */
-.nav-cta {
+/* Contribute button (desktop baseline) */
+.nav-link.nav-cta {
   padding: 8px 14px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #c4b5fd, #ffffff); /* lavender → white */
+  background: linear-gradient(135deg, #c4b5fd, #ffffff);
   color: #111827;
   border: none;
-  box-shadow: 0 8px 18px rgba(148, 163, 184, 0.4); /* softer neutral shadow */
+  box-shadow: 0 8px 18px rgba(148, 163, 184, 0.4);
+  text-decoration: none;
 }
 
-.nav-cta:hover {
+.nav-link.nav-cta:hover {
+  background: linear-gradient(135deg, #c4b5fd, #a78bfa);
   text-decoration: none;
-  background: linear-gradient(135deg, #c4b5fd, #a78bfa); /* lavender gradient */
+}
+
+/* Ensure page theme classes don't affect navbar */
+body.issues-page .site-header,
+body.voter-page .site-header,
+body.whois-erik-page .site-header {
+  background: #f5f5f7;
+  color: #111827;
 }
 
 /* =========================
-   MOBILE OVERLAY MENU
+   MOBILE OVERLAY MENU (CLEAN + CONSISTENT)
 ========================= */
 
 @media (max-width: 900px) {
-  /* show burger on mobile */
+  /* show burger */
   .nav-toggle {
     display: flex;
   }
 
-  /* Overlay menu using the same <ul class="main-menu"> */
+  /* logo size */
+  .logo img {
+    height: 56px;
+  }
+
+  /* Full-screen overlay */
   .main-menu {
     position: fixed;
-    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    inset: 0;
     margin: 0;
-    padding: 80px 24px 32px; /* leave room at top for logo/burger */
+    list-style: none;
+
+    /* THIS sets the left edge for EVERYTHING */
+    padding: 80px 24px 32px;
+
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: flex-start;
+    justify-content: flex-start;
     gap: 18px;
 
-    background: rgba(0, 18, 41, 0.96); /* deep navy overlay */
-    display: flex;
+    background: rgba(0, 18, 41, 0.96);
+    z-index: 60;
 
     opacity: 0;
     pointer-events: none;
     transform: translateY(-10px);
     transition: opacity 0.25s ease, transform 0.25s ease;
-
-    z-index: 60;
   }
 
-  /* When menu is open (JS adds .is-open) */
   .main-menu.is-open {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
   }
 
-  /* Animate menu items in */
+  /* Each item row */
   .main-menu li {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
     opacity: 0;
     transform: translateY(8px);
     transition: opacity 0.25s ease, transform 0.25s ease;
@@ -198,7 +223,7 @@ a:hover {
     transform: translateY(0);
   }
 
-  /* Nice staggered effect */
+  /* Stagger */
   .main-menu.is-open li:nth-child(1) { transition-delay: 0.05s; }
   .main-menu.is-open li:nth-child(2) { transition-delay: 0.10s; }
   .main-menu.is-open li:nth-child(3) { transition-delay: 0.15s; }
@@ -207,36 +232,35 @@ a:hover {
   .main-menu.is-open li:nth-child(6) { transition-delay: 0.30s; }
   .main-menu.is-open li:nth-child(7) { transition-delay: 0.35s; }
 
-  /* Make links big and readable in overlay */
+  /* Links: vertical padding only (no left/right padding) */
   .main-menu .nav-link {
+    display: block;        /* consistent tap target */
+    width: 100%;           /* consistent hit area */
+    padding: 10px 0;       /* vertical only */
+    margin: 0;             /* no offsets */
     font-size: 1.05rem;
-    padding: 6px 0;
     color: #f9fafb;
     border-bottom: none;
   }
 
-  .main-menu .nav-cta {
-    margin-top: 16px;
-  }
+/* Contribute: align its TEXT with other link text */
+.main-menu .nav-link.nav-cta {
+  display: inline-flex;
+  width: auto;
 
-  /* Hide the inline nav layout on mobile (we only use overlay) */
+  margin: 16px 0 0 0 !important;
+  padding: 12px 18px;     /* pill padding stays */
+  line-height: 1;
+  white-space: nowrap;
+
+  /* Pull the pill left so the TEXT starts where other link text starts */
+  transform: translateX(-4px);
+}
+  /* Keep header layout stable */
   .nav-inner {
     justify-content: space-between;
   }
 }
-
-  .navbar .container {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-
-    .logo img {
-    height: 56px;
-  }
-
-  .nav-toggle {
-    padding: 4px;
-  }
 
 /* Freeze page scroll when overlay is open */
 body.menu-open {
@@ -1059,34 +1083,10 @@ body.voter-page {
   }
 }
 
-/* Make header full-bleed and logo flush left */
-.site-header {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.site-header .nav-inner {
-  max-width: none;          /* ignore global max-width */
-  margin: 0;                /* no centering */
-  padding-left: 10;          /* remove left padding */
-  padding-right: 20px;      /* optional right padding so menu/items breathe */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Make sure the logo actually hits the edge */
-.site-header .logo {
-  margin: 0;
-}
-
-.site-header .logo img {
-  display: block;
-}
-
 /* Center the 4th "Connect on Social Media" panel on desktop */
 @media (min-width: 900px) {
   .panel-card--social {
     grid-column: 2; /* Middle column */
   }
 }
+

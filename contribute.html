@@ -182,6 +182,30 @@
     .contribute-back a:hover {
       text-decoration: underline;
     }
+    /* =========================
+   CONRIBUTE PAGE — NAVBAR SPACING FIX (PAGE ONLY)
+   Forces navbar padding to match the other pages
+========================= */
+body.contribute-page .navbar .container.nav-inner {
+  max-width: none !important;
+  margin: 0 !important;
+  padding-left: 20px !important;
+  padding-right: 35px !important;
+}
+
+/* Keep the inner row spacing consistent */
+body.contribute-page .nav-inner {
+  padding: 6px 0 !important;
+}
+
+/* Mobile: keep same edge behavior */
+@media (max-width: 900px) {
+  body.contribute-page .navbar .container.nav-inner {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
   </style>
 </head>
 <body class="contribute-page">
