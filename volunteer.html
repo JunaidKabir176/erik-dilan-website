@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Volunteer | Erik Dilan for New York State Assembly</title>
+
+  <meta
+    name="description"
+    content="Volunteer with Team Erik. Sign up to knock doors, make calls, and help us reach voters across the district."
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="favicon_io_erik/favicon-32x32.png" />
+  <link rel="icon" type="image/png" href="website-logo-512x512.jpg" />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- NAVBAR (same as your other pages) -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="container nav-inner">
+
+        <a href="index.html" class="logo">
+          <img src="website-logo-512x512.jpg" alt="Website Logo" />
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <ul id="primary-nav" class="main-menu" role="menubar">
+          <li role="none"><a role="menuitem" href="WhoisErik.html" class="nav-link">Who is Erik?</a></li>
+          <li role="none"><a role="menuitem" href="issues.html" class="nav-link">Issues</a></li>
+          <li role="none"><a role="menuitem" href="news.html" class="nav-link">News</a></li>
+          <li role="none"><a role="menuitem" href="vote.html" class="nav-link">Voter Info</a></li>
+          <li role="none"><a role="menuitem" href="contact.html" class="nav-link">Contact</a></li>
+          <li role="none"><a role="menuitem" href="contribute.html" class="nav-link nav-cta">Contribute</a></li>
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- VOLUNTEER HERO (Dalourny-style: image + title + short copy) -->
+    <section class="volunteer-hero" aria-labelledby="volunteer-title">
+      <div class="container volunteer-hero-inner">
+        <div class="volunteer-hero-media">
+          <!-- Replace with your own volunteer/campaign photo -->
+          <img src="volunteer-hero.jpg" alt="Campaign volunteers engaging the community" />
+        </div>
+
+        <div class="volunteer-hero-text">
+          <p class="volunteer-kicker">GET INVOLVED</p>
+          <h1 id="volunteer-title" class="volunteer-title">Volunteer</h1>
+          <p class="volunteer-lede">
+            Interested in working together? Fill out the form below and our team will be in touch shortly.
+          </p>
+
+          <div class="volunteer-quick-links">
+            <a class="btn btn-primary" href="#volunteer-form">Sign Up</a>
+            <a class="btn btn-outline" href="contribute.html">Donate</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOLUNTEER FORM -->
+    <section class="volunteer-form-section" aria-labelledby="volunteer-form-heading">
+      <div class="container">
+        <h2 id="volunteer-form-heading" class="volunteer-form-heading">Volunteer Sign-Up</h2>
+        <p class="volunteer-form-subtext">
+          Tell us how you’d like to help. We’ll follow up with next steps.
+        </p>
+
+        <!--
+          RECOMMENDED: Formspree (free + easy)
+          1) Create a Formspree form
+          2) Replace action="" with your Formspree endpoint:
+             https://formspree.io/f/xxxxxx
+        -->
+        <form
+          id="volunteer-form"
+          class="volunteer-form"
+          action=""
+          method="POST"
+          novalidate
+        >
+          <div class="volunteer-grid">
+            <div class="field">
+              <label for="firstName">First Name <span class="required">*</span></label>
+              <input id="firstName" name="first_name" type="text" required autocomplete="given-name" />
+            </div>
+
+            <div class="field">
+              <label for="lastName">Last Name <span class="required">*</span></label>
+              <input id="lastName" name="last_name" type="text" required autocomplete="family-name" />
+            </div>
+
+            <div class="field">
+              <label for="email">Email <span class="required">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+
+            <div class="field">
+              <label for="zip">ZIP Code</label>
+              <input id="zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" />
+            </div>
+
+            <div class="field">
+              <label for="availability">Availability</label>
+              <select id="availability" name="availability">
+                <option value="">Select one</option>
+                <option value="weekdays">Weekdays</option>
+                <option value="weeknights">Weeknights</option>
+                <option value="weekends">Weekends</option>
+                <option value="flexible">Flexible</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="volunteer-fieldset">
+            <legend>How do you want to help?</legend>
+
+            <div class="volunteer-checks">
+              <label class="check">
+                <input type="checkbox" name="interests" value="door_knocking" />
+                Door knocking
+              </label>
+
+              <label class="check">
+                <input type="checkbox" name="interests" value="phone_banking" />
+                Phone banking
+              </label>
+
+              <label class="check">
+                <input type="checkbox" name="interests" value="texting" />
+                Texting voters
+              </label>
+
+              <label class="check">
+                <input type="checkbox" name="interests" value="events" />
+                Events / tabling
+              </label>
+
+              <label class="check">
+                <input type="checkbox" name="interests" value="data_admin" />
+                Data / admin support
+              </label>
+
+              <label class="check">
+                <input type="checkbox" name="interests" value="other" />
+                Other
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field field-full">
+            <label for="message">Anything you want us to know?</label>
+            <textarea id="message" name="message" rows="4" placeholder="Skills, language(s), preferred neighborhood, etc."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary volunteer-submit">
+            Submit
+          </button>
+
+          <p class="volunteer-disclaimer">
+            By providing your contact information, you consent to receive campaign updates from Committee to Elect Erik Dilan. You can opt out at any time.
+          </p>
+
+          <p id="volunteer-status" class="volunteer-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (with your icon-only social, using your same social-pill colors) -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <div class="footer-social">
+        <a
+          href="https://www.facebook.com/erikmartindilan/"
+          class="footer-social-pill social-pill--facebook"
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a
+          href="https://www.instagram.com/edilan54/?hl=en"
+          class="footer-social-pill social-pill--instagram"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a
+          href="https://assembly.state.ny.us/mem/Erik-M-Dilan/video/"
+          class="footer-social-pill social-pill--youtube"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube"
+        >
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@YourHandle"
+          class="footer-social-pill social-pill--tiktok"
+          target="_blank"
+          rel="noopener"
+          aria-label="TikTok"
+        >
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+
+      <p class="paid-for">Paid for by Committee to Elect Erik Dilan</p>
+      <p class="footer-meta">
+        &copy; <span id="year"></span> Erik Dilan for New York State Assembly
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.querySelector(".nav-toggle");
+    const primaryNav = document.getElementById("primary-nav");
+
+    if (navToggle && primaryNav) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = primaryNav.classList.toggle("is-open");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
+
+    // Year
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    // Volunteer form submit:
+    // - If action="" (not configured), fall back to mailto (still “works”).
+    // - If Formspree endpoint is set, submit via fetch and show confirmation.
+    const form = document.getElementById("volunteer-form");
+    const statusEl = document.getElementById("volunteer-status");
+
+    function setStatus(msg, ok = true) {
+      if (!statusEl) return;
+      statusEl.textContent = msg;
+      statusEl.classList.toggle("is-error", !ok);
+      statusEl.classList.toggle("is-success", ok);
+    }
+
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const first = document.getElementById("firstName")?.value.trim();
+        const last = document.getElementById("lastName")?.value.trim();
+        const email = document.getElementById("email")?.value.trim();
+
+        if (!first || !last || !email) {
+          setStatus("Please complete First Name, Last Name, and Email.", false);
+          return;
+        }
+
+        const action = form.getAttribute("action")?.trim();
+
+        // If no endpoint configured, mailto fallback
+        if (!action) {
+          const data = new FormData(form);
+          const lines = [];
+          for (const [k, v] of data.entries()) {
+            lines.push(`${k}: ${v}`);
+          }
+          const subject = encodeURIComponent("Volunteer Sign-Up — Erik Dilan Campaign");
+          const body = encodeURIComponent(lines.join("\n"));
+          window.location.href = `mailto:info@YOURDOMAIN.org?subject=${subject}&body=${body}`;
+          setStatus("Opening your email client to send your sign-up…");
+          return;
+        }
+
+        // Formspree / endpoint submission
+        try {
+          setStatus("Submitting…");
+
+          const res = await fetch(action, {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: new FormData(form),
+          });
+
+          if (res.ok) {
+            form.reset();
+            setStatus("Thank you — we received your sign-up. Our team will contact you soon.");
+          } else {
+            setStatus("Submission failed. Please try again or contact the campaign.", false);
+          }
+        } catch (err) {
+          setStatus("Network error. Please try again or contact the campaign.", false);
+        }
+      });
+    }
+  </script>
+</body>
+</html>

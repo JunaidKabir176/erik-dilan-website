@@ -9,12 +9,9 @@
     content="Get in touch with the Erik Dilan campaign or sign up to volunteer in your neighborhood."
   />
 
-  <!-- Favicon -->
-  <link
-    rel="icon"
-    type="image/png"
-    href="favicon_io_erik/favicon-32x32.png"
-  />
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="favicon_io_erik/favicon-32x32.png" />
+  <link rel="icon" type="image/png" href="website-logo-512x512.jpg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,7 +21,7 @@
     rel="stylesheet"
   />
 
-  <!-- Font Awesome (for burger icon in navbar.html) -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -32,9 +29,7 @@
     referrerpolicy="no-referrer"
   />
 
- <link rel="icon" type="image/png" href="website-logo-512x512.jpg">
-
-  <!-- Main site stylesheet -->
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css" />
 
   <!-- Page-specific styling -->
@@ -126,135 +121,32 @@
       margin: 4px 0 14px;
     }
 
-    .contact-card small,
-    .volunteer-card small {
-      font-size: 0.8rem;
+    /* Embedded form styling */
+    .form-embed-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(191, 219, 254, 0.35);
+      background: #0b1b4f;
+    }
+
+    .form-embed-wrap iframe {
+      display: block;
+      width: 100%;
+    }
+
+    .form-fallback {
+      margin-top: 10px;
+      font-size: 0.85rem;
       color: #cbd5f5;
     }
 
-    /* Form */
-    .contact-form {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .field-row {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    @media (max-width: 600px) {
-      .field-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 0.85rem;
-    }
-
-    .field-group label {
-      color: #e5e7eb;
-    }
-
-    .field-group span.required {
+    .form-fallback a {
       color: #c4b5fd;
-      margin-left: 3px;
+      text-decoration: none;
     }
 
-    .field-group input,
-    .field-group textarea,
-    .field-group select {
-      border-radius: 999px;
-      border: 1px solid rgba(191, 219, 254, 0.85);
-      padding: 9px 12px;
-      background: #0b1b4f;
-      color: #e5e7eb;
-      font-size: 0.86rem;
-      font-family: inherit;
-    }
-
-    .field-group textarea {
-      border-radius: 12px;
-      min-height: 90px;
-      resize: vertical;
-    }
-
-    .field-group input::placeholder,
-    .field-group textarea::placeholder {
-      color: #9ca3af;
-    }
-
-    /* Volunteer options */
-    .volunteer-options {
-      margin-top: 6px;
-      padding: 10px 10px 8px;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-    }
-
-    .volunteer-options legend {
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: #c4b5fd;
-      margin-bottom: 4px;
-    }
-
-    .volunteer-options-list {
-      margin-top: 4px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 4px;
-      font-size: 0.86rem;
-    }
-
-    .volunteer-options-list label {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      cursor: pointer;
-      color: #e5e7eb;
-    }
-
-    .volunteer-options-list input[type="checkbox"] {
-      accent-color: #c4b5fd;
-    }
-
-    /* Submit button */
-    .contact-submit {
-      margin-top: 8px;
-    }
-
-    .contact-submit button {
-      display: inline-block;
-      padding: 10px 26px;
-      border-radius: 999px;
-      border: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      background: linear-gradient(135deg, #c4b5fd, #c4b5fd);
-      color: #111827;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6);
-      transition: background 0.15s ease, transform 0.15s ease,
-        box-shadow 0.15s ease;
-    }
-
-    .contact-submit button:hover {
-      background: linear-gradient(135deg, #c4b5fd, #c4b5fd);
-      transform: translateY(-1px);
-      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.7);
+    .form-fallback a:hover {
+      text-decoration: underline;
     }
 
     /* Right card content */
@@ -281,8 +173,9 @@
     }
 
     .volunteer-note {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #cbd5f5;
+      line-height: 1.5;
     }
 
     .contact-alt {
@@ -299,8 +192,68 @@
     .contact-alt a:hover {
       text-decoration: underline;
     }
+
+    /* -------------------------
+   Responsive improvements
+-------------------------- */
+
+/* Prevent sideways scroll on mobile */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Better spacing on small screens */
+@media (max-width: 900px) {
+  .contact-hero {
+    padding: 40px 0 20px;
+  }
+
+  .contact-section {
+    padding: 18px 0 40px;
+  }
+
+  .contact-card,
+  .volunteer-card {
+    padding: 18px 14px 20px;
+    border-radius: 16px;
+  }
+
+  .contact-card h2,
+  .volunteer-card h2 {
+    font-size: 1.15rem;
+  }
+
+  .contact-card p.lead,
+  .volunteer-card p.lead {
+    font-size: 0.92rem;
+  }
+}
+
+/* Responsive iframe sizing */
+.form-embed-wrap iframe {
+  width: 100%;
+  border: 0;
+  display: block;
+  min-height: 860px; /* desktop baseline */
+}
+
+/* Mobile: give the form more vertical room */
+@media (max-width: 600px) {
+  .form-embed-wrap iframe {
+    min-height: 1100px;
+  }
+}
+
+/* Optional: tighten the right card a bit on mobile */
+@media (max-width: 600px) {
+  .volunteer-list {
+    font-size: 0.9rem;
+  }
+}
+
   </style>
 </head>
+
 <body class="contact-page">
   <!-- Shared navbar -->
   <div id="site-header"></div>
@@ -320,166 +273,37 @@
     <!-- Main content -->
     <section class="contact-section">
       <div class="contact-grid">
-        <!-- LEFT: FORM -->
+
+        <!-- LEFT: EMBEDDED GOOGLE FORM -->
         <section class="contact-card">
           <h2>Send a message</h2>
           <p class="lead">
-            Share your questions, concerns, or let us know how you’d like to help.
-            A member of the campaign team will follow up.
+            Use the form below to contact the campaign or sign up to volunteer.
+            Submissions go directly to our team.
           </p>
 
-          <!-- Replace `#` with your form handler (Formspree, Netlify, etc.) -->
-          <form
-            class="contact-form"
-            action="#"
-            method="POST"
-          >
-            <div class="field-row">
-              <div class="field-group">
-                <label for="name">
-                  Full Name <span class="required">*</span>
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  placeholder="First and last name"
-                />
-              </div>
+        <div class="form-embed-wrap">
+         <iframe
+        id="contactFormFrame"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSctFDXg6MJO7dmFLXcvfToA7D8tQIb6_McJVRqFd5VVhfqiHA/viewform?embedded=true"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        loading="lazy"
+        title="Volunteer & Contact Form"
+           >
+    Loading…
+  </iframe>
+</div>
 
-              <div class="field-group">
-                <label for="email">
-                  Email <span class="required">*</span>
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="you@example.com"
-                />
-              </div>
-            </div>
-
-            <div class="field-row">
-              <div class="field-group">
-                <label for="phone">Phone (optional)</label>
-                <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="Mobile or home number"
-                />
-              </div>
-
-              <div class="field-group">
-                <label for="zip">
-                  ZIP Code <span class="required">*</span>
-                </label>
-                <input
-                  id="zip"
-                  name="zip"
-                  type="text"
-                  required
-                  placeholder="e.g. 11208"
-                />
-              </div>
-            </div>
-
-            <div class="field-group">
-              <label for="subject">
-                Subject <span class="required">*</span>
-              </label>
-              <input
-                id="subject"
-                name="subject"
-                type="text"
-                required
-                placeholder="Reason for contacting the campaign"
-              />
-            </div>
-
-            <div class="field-group">
-              <label for="message">
-                Message <span class="required">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                required
-                placeholder="Share your question, concern, or message for the campaign."
-              ></textarea>
-            </div>
-
-            <!-- Volunteer interest block -->
-            <fieldset class="volunteer-options">
-              <legend>I'm interested in:</legend>
-              <div class="volunteer-options-list">
-                <label>
-                  <input
-                    type="checkbox"
-                    name="volunteer_interests"
-                    value="door_canvassing"
-                  />
-                  Door-to-door canvassing
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    name="volunteer_interests"
-                    value="phone_text"
-                  />
-                  Phone or text banking
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    name="volunteer_interests"
-                    value="events"
-                  />
-                  Helping at community events
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    name="volunteer_interests"
-                    value="office_support"
-                  />
-                  Office / campaign HQ support
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    name="volunteer_interests"
-                    value="email_updates"
-                  />
-                  Getting email updates from the campaign
-                </label>
-              </div>
-            </fieldset>
-
-            <div class="field-group">
-              <label for="best-time">
-                Best time to reach you (optional)
-              </label>
-              <input
-                id="best-time"
-                name="best_time"
-                type="text"
-                placeholder="e.g. Weekday evenings after 6pm"
-              />
-            </div>
-
-            <div class="contact-submit">
-              <button type="submit">Submit</button>
-            </div>
-
-            <small>
-              By submitting this form, you consent to the campaign contacting you
-              using the information provided.
-            </small>
-          </form>
+          <div class="form-fallback">
+            Having trouble viewing the form?
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSctFDXg6MJO7dmFLXcvfToA7D8tQIb6_McJVRqFd5VVhfqiHA/viewform"
+              target="_blank"
+              rel="noopener"
+            >Open it in a new tab</a>.
+          </div>
         </section>
 
         <!-- RIGHT: VOLUNTEER INFO -->
@@ -498,33 +322,69 @@
           </ul>
 
           <p class="volunteer-note">
-            Use the form on the left to tell us how you’d like to help. A member
-            of the volunteer team will follow up with next steps and upcoming
-            opportunities.
+            After you sign up, our team will reach out with upcoming volunteer shifts and training.
+            No experience needed—just a willingness to help.
           </p>
 
           <div class="contact-alt">
             Prefer email? Reach us at
-            <a href="mailto:info@erikdilancampaign.org">
-              info@erikdilancampaign.org
-            </a>
-            and include your name, neighborhood, and how you’d like to get
-            involved.
+            <a href="mailto:info@erikdilancampaign.org">info@erikdilancampaign.org</a>.
           </div>
         </section>
+
       </div>
     </section>
   </main>
 
-  <!-- FOOTER (same pattern as other pages) -->
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p class="paid-for">
-        Paid for by Friends of Erik Dilan
-      </p>
-      <p class="footer-meta">
-        © <span id="year"></span> Erik Dilan for New York State Assembly. All rights reserved.
-      </p>
+
+      <!-- SOCIAL FOOTER -->
+      <div class="footer-social">
+        <a
+          href="https://www.facebook.com/erikmartindilan/"
+          class="footer-social-pill social-pill--facebook"
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a
+          href="https://www.instagram.com/edilan54/?hl=en"
+          class="footer-social-pill social-pill--instagram"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a
+          href="https://assembly.state.ny.us/mem/Erik-M-Dilan/video/"
+          class="footer-social-pill social-pill--youtube"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube"
+        >
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@YourHandle"
+          class="footer-social-pill social-pill--tiktok"
+          target="_blank"
+          rel="noopener"
+          aria-label="TikTok"
+        >
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+
+      <p class="paid-for">Paid for by Committee to Elect Erik Dilan</p>
+      <p class="footer-meta">&copy; <span id="year"></span> Erik Dilan for New York State Assembly</p>
     </div>
   </footer>
 
@@ -551,18 +411,30 @@
         const path = window.location.pathname.split("/").pop() || "index.html";
         links.forEach((link) => {
           const href = link.getAttribute("href");
-          if (href === path) {
-            link.classList.add("active");
-          }
+          if (href === path) link.classList.add("active");
         });
       })
       .catch((err) => console.error("Error loading navbar:", err));
 
     // Footer year
     const yearSpan = document.getElementById("year");
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-  </script>
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+  function adjustFormHeight() {
+    const frame = document.getElementById("contactFormFrame");
+    if (!frame) return;
+
+    // Safe responsive defaults (Google Forms doesn't auto-resize across domains)
+    const w = window.innerWidth;
+    if (w <= 420) frame.style.minHeight = "1250px";
+    else if (w <= 600) frame.style.minHeight = "1150px";
+    else if (w <= 900) frame.style.minHeight = "980px";
+    else frame.style.minHeight = "860px";
+  }
+
+  adjustFormHeight();
+  window.addEventListener("resize", adjustFormHeight);
+</script>
+
 </body>
 </html>

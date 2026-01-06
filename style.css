@@ -796,6 +796,33 @@ body.issues-page {
   color: #cbd5f5;
 }
 
+/* CONTACT PAGE */
+.form-embed-wrap {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(191, 219, 254, 0.35);
+  background: #0b1b4f;
+}
+
+.form-embed-wrap iframe {
+  display: block;
+}
+
+.form-fallback {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #cbd5f5;
+}
+
+.form-fallback a {
+  color: #c4b5fd;
+  text-decoration: none;
+}
+
+.form-fallback a:hover {
+  text-decoration: underline;
+}
+
 /* =========================
    Footer
 ========================= */
@@ -821,6 +848,33 @@ body.issues-page {
 .footer-meta {
   margin: 0;
 }
+
+.footer-social {
+  display: flex;
+  justify-content: space-evenly; /* evenly distributes buttons */
+  align-items: center;
+  max-width: 520px;              /* controls spread width */
+  margin: 0 auto 20px;           /* center + spacing below */
+}
+
+.footer-social a {
+  width: 56px;                   /* bigger tap target */
+  height: 56px;
+  border-radius: 50%;
+  background: #1e293b;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;               /* BIGGER ICON */
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.footer-social a:hover {
+  background: #2563eb;
+  transform: translateY(-3px) scale(1.05);
+}
+
 
 /* =========================
    Responsive
