@@ -10,12 +10,9 @@
     content="Learn more about Assemblymember Erik M. Dilan, his roots in North Brooklyn, and his record of fighting for housing, public safety, and working families."
   />
 
-  <!-- Favicon -->
-  <link
-    rel="icon"
-    type="image/png"
-    href="favicon_io_erik/favicon-32x32.png"
-  />
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="favicon_io_erik/favicon-32x32.png" />
+  <link rel="icon" type="image/png" href="website-logo-512x512.jpg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,7 +22,7 @@
     rel="stylesheet"
   />
 
-  <!-- Font Awesome (for icons) -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -33,39 +30,81 @@
     referrerpolicy="no-referrer"
   />
 
-   <link rel="icon" type="image/png" href="website-logo-512x512.jpg">
-
-
   <!-- Main Styles -->
   <link rel="stylesheet" href="style.css" />
 
   <!-- Page-specific styles -->
   <style>
     :root {
-      --erik-navy: #020617;
-      --erik-navy-soft: #0b1220;
-      --erik-surface: #0f172a;
       --erik-border: rgba(148, 163, 184, 0.6);
       --erik-gold: #c4b5fd;
       --erik-text: #e5e7eb;
       --erik-text-soft: #cbd5f5;
+      --erik-panel: rgba(15, 23, 42, 0.95);
+      --erik-panel-soft: rgba(15, 23, 42, 0.88);
+      --erik-shadow: 0 20px 55px rgba(0, 0, 0, 0.85);
     }
 
     body.whois-erik-page {
-      background: linear-gradient(180deg, #0038a8 0%, #0b1b4f 50%, #001229 100%);
+      background: linear-gradient(180deg, #0038a8 0%, #0b1b4f 55%, #001229 100%);
       color: var(--erik-text);
       font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
     }
 
-    main {
-      padding-bottom: 60px;
-    }
+    main { padding-bottom: 70px; }
 
-    /* ========== HERO LAYOUT ========== */
-    .erik-intro {
+    /* =========================================================
+       SECTION SHELL (single “surface language”)
+    ========================================================= */
+    .erik-shell {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 72px 20px 56px;
+      padding: 0 20px;
+    }
+
+    .erik-panel {
+      border-radius: 18px;
+      border: 1px solid var(--erik-border);
+      background: var(--erik-panel);
+      box-shadow: var(--erik-shadow);
+      padding: 20px 22px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .erik-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(248, 250, 252, 0.06), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .erik-panel > * { position: relative; z-index: 1; }
+
+    .erik-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--erik-text-soft);
+      margin-bottom: 10px;
+    }
+
+    .erik-label i { color: var(--erik-gold); }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+    .erik-hero {
+      padding: 72px 0 30px;
+    }
+
+    .erik-intro {
       display: grid;
       grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
       gap: 48px;
@@ -73,27 +112,12 @@
       position: relative;
     }
 
-    .erik-intro::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top right, rgba(248, 250, 252, 0.08), transparent 60%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .erik-intro > * {
-      position: relative;
-      z-index: 1;
-    }
-
     .erik-kicker {
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.22em;
       color: var(--erik-text-soft);
-      margin-bottom: 8px;
+      margin: 0 0 8px;
     }
 
     .erik-intro h1 {
@@ -103,15 +127,14 @@
       color: #f9fafb;
     }
 
-    .erik-intro h1 span {
-      color: var(--erik-gold);
-    }
+    .erik-intro h1 span { color: var(--erik-gold); }
 
     .erik-intro-lede {
       margin: 0 0 12px;
       font-size: 1rem;
       line-height: 1.7;
       color: var(--erik-text);
+      max-width: 760px;
     }
 
     .erik-intro-sub {
@@ -119,25 +142,52 @@
       font-size: 0.95rem;
       line-height: 1.6;
       color: var(--erik-text-soft);
+      max-width: 760px;
     }
 
-    /* ========== HERO HIGHLIGHTS ========== */
+    .erik-intro-img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+.erik-photo-frame{
+  width: 240px;
+  height: 240px;
+  padding: 6px;
+  overflow: hidden;              /* add this */
+  border-radius: 16px;
+  border: 1px solid rgba(191, 219, 254, 0.35);
+  background: rgba(0, 18, 41, 0.35);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+}
+
+.erik-photo-frame img{
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 20%;      /* add this */
+}
+
+    /* highlights as a clean “fact block” */
     .erik-highlights {
       list-style: none;
       margin: 18px 0 0;
-      padding: 16px 18px 18px;
+      padding: 14px 16px 16px;
       border-radius: 16px;
-      border: 1px solid var(--erik-border);
-      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(0, 18, 41, 0.35);
       display: grid;
-      row-gap: 8px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75);
+      row-gap: 9px;
     }
 
     .erik-highlights li {
       display: grid;
       grid-template-columns: auto 1fr;
-      column-gap: 8px;
+      column-gap: 10px;
       align-items: flex-start;
       font-size: 0.95rem;
       line-height: 1.5;
@@ -153,293 +203,298 @@
       margin-top: 2px;
     }
 
-    .erik-highlights li span {
-      display: block;
+    /* =========================================================
+       BIOGRAPHY (IMPROVED DESKTOP BEHAVIOR)
+       - Desktop: 2-column layout
+         left: sticky summary
+         right: accordion list
+    ========================================================= */
+    .erik-bio {
+      padding: 20px 0 26px;
     }
 
-    /* ========== PHOTO CARD ========== */
-    .erik-intro-img {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .erik-photo-frame {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      padding: 6px;
-      background: radial-gradient(circle at top, var(--erik-gold) 0%, #2563eb 35%, #020617 80%);
-      box-shadow: 0 0 50px rgba(15, 23, 42, 0.8);
-      overflow: hidden;
-    }
-
-    .erik-photo-frame img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .erik-photo-caption {
-      margin-top: 10px;
-      font-size: 0.85rem;
-      color: var(--erik-text-soft);
-      text-align: center;
-      max-width: 280px;
-    }
-
-    /* ========== RECORD OF SERVICE ========== */
-    .erik-record {
-      max-width: 1120px;
-      margin: 0 auto 40px;
-      padding: 0 20px;
-    }
-
-    .erik-record-inner {
-      border-radius: 18px;
-      border: 1px solid var(--erik-border);
-      background: rgba(15, 23, 42, 0.95);
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.85);
-      padding: 18px 22px 20px;
-    }
-
-    .erik-record-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
-    .erik-record-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--erik-text-soft);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .erik-record-label i {
-      font-size: 0.85rem;
-      color: var(--erik-gold);
-    }
-
-    .erik-record-header h2 {
-      margin: 0;
-      font-size: 1.35rem;
-      letter-spacing: 0.04em;
-      color: var(--erik-gold);
-    }
-
-    .erik-record-grid {
+    .bio-layout {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      font-size: 0.9rem;
-      color: var(--erik-text);
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.35fr);
+      gap: 18px;
+      align-items: start;
     }
 
-    .erik-record-item-title {
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: #f9fafb;
+    .bio-summary {
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: var(--erik-panel-soft);
+      padding: 16px 16px 16px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+      position: sticky;
+      top: 92px; /* sits nicely under sticky navbar */
     }
 
-    .erik-record-item-body {
-      line-height: 1.65;
-      color: var(--erik-text-soft);
-    }
-
-    /* ========== PRIORITIES / ACCORDION SECTION ========== */
-    .erik-section {
-      max-width: 1120px;
-      margin: 0 auto 40px;
-      padding: 0 20px;
-    }
-
-    .erik-section-inner {
-      border-radius: 18px;
-      border: 1px solid var(--erik-border);
-      background: rgba(15, 23, 42, 0.96);
-      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.85);
-      padding: 18px 20px 18px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .erik-section-inner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at top left,
-        rgba(248, 250, 252, 0.06),
-        transparent 60%
-      );
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .erik-section-inner > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .erik-section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.78rem;
+    .bio-kicker {
+      margin: 0 0 6px;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--erik-text-soft);
-      margin-bottom: 4px;
     }
 
-    .erik-section-label i {
-      font-size: 0.85rem;
+    .bio-title {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
       color: var(--erik-gold);
+      letter-spacing: 0.03em;
+      line-height: 1.25;
     }
 
-    .erik-section-title-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-    }
-
-    .erik-section-title-row h2 {
-      margin: 0;
-      font-size: 1.45rem;
-      color: var(--erik-gold);
-      letter-spacing: 0.04em;
-    }
-
-    .erik-section-intro {
-      margin: 0 0 10px;
-      font-size: 0.96rem;
+    .bio-subtitle {
+      margin: 0 0 12px;
+      font-size: 0.95rem;
       line-height: 1.7;
       color: var(--erik-text-soft);
     }
 
-    /* ========== ACCORDION ========== */
-    .accordion {
-      margin-top: 6px;
-      display: flex;
-      flex-direction: column;
+    .bio-quickfacts {
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
       gap: 10px;
     }
 
-    .accordion-item {
+    .bio-quickfacts li {
       border-radius: 14px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(15, 23, 42, 0.9);
-      padding: 10px 14px 10px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(0, 18, 41, 0.28);
+      padding: 10px 12px;
+      color: var(--erik-text);
+      font-size: 0.92rem;
+      line-height: 1.5;
     }
 
-    .accordion-header {
+    .bio-quickfacts strong {
+      display: block;
+      color: #f9fafb;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    /* Accordion list container */
+    .bio-accordion {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .bio-card {
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 14px 14px 12px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+    }
+
+    .bio-card--featured {
+      border-color: rgba(196, 181, 253, 0.6);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    /* clickable header */
+    .bio-accordion-header {
       width: 100%;
       border: none;
       background: transparent;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 2px 0 2px;
-      cursor: pointer;
       text-align: left;
+      cursor: pointer;
+      padding: 0;
+      margin: 0;
+
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      gap: 6px 12px;
+      align-items: start;
     }
 
-    .erik-section-header-text {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .accordion-eyebrow {
+    .bio-tag {
+      display: inline-flex;
+      align-items: center;
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--erik-text-soft);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      border-radius: 999px;
+      padding: 6px 10px;
+      width: fit-content;
     }
 
-    .accordion-eyebrow i {
-      font-size: 0.82rem;
-      color: var(--erik-gold);
-    }
-
-    .accordion-title {
+    .bio-card-title {
       margin: 0;
       font-size: 1rem;
       color: #f9fafb;
     }
 
-    .accordion-icon {
+    .bio-accordion-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(0, 18, 41, 0.35);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.9);
+      margin-top: 2px;
     }
 
-    .accordion-icon i {
+    .bio-accordion-icon i {
       font-size: 0.8rem;
       color: var(--erik-gold);
       transition: transform 0.2s ease;
     }
 
-    .accordion-body {
-      margin-top: 6px;
-      max-height: 0;
+    /* collapsible body */
+    .bio-accordion-body {
+      margin-top: 10px;
       overflow: hidden;
+      max-height: 0;
       opacity: 0;
       transition: max-height 0.25s ease, opacity 0.25s ease;
     }
 
-    .accordion-body p {
-      margin: 0;
-      padding-top: 4px;
+    .bio-accordion-body p {
+      margin: 0 0 10px;
       font-size: 0.95rem;
       line-height: 1.7;
       color: var(--erik-text);
     }
+    .bio-accordion-body p:last-child { margin-bottom: 0; }
 
-    .accordion-item.is-open .accordion-body {
-      max-height: 340px; /* adjust if any section gets longer */
+    .bio-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--erik-text);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* open state */
+    .bio-card.is-open .bio-accordion-body {
+      max-height: 900px;
       opacity: 1;
     }
 
-    .accordion-item.is-open .accordion-icon i {
+    .bio-card.is-open .bio-accordion-body[hidden] {
+      display: block;
+    }
+
+    .bio-card.is-open .bio-accordion-icon i {
       transform: rotate(180deg);
     }
 
-    /* ========== RESPONSIVE ========== */
+    /* =========================================================
+       RECORD OF SERVICE (VERTICAL ON DESKTOP)
+    ========================================================= */
+    .erik-record {
+      padding: 14px 0 0;
+    }
+
+    .erik-record h2 {
+      margin: 6px 0 14px;
+      font-size: 1.35rem;
+      letter-spacing: 0.03em;
+      color: var(--erik-gold);
+    }
+
+    /* Vertical stack on desktop (and mobile) */
+    .erik-record-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .record-item {
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(0, 18, 41, 0.32);
+      padding: 14px 14px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .record-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      bottom: 10px;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, rgba(196,181,253,0.9), rgba(37,99,235,0.9));
+      opacity: 0.9;
+    }
+
+    .record-item-inner {
+      padding-left: 10px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .record-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      background: rgba(15, 23, 42, 0.7);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      flex: 0 0 auto;
+    }
+
+    .record-icon i {
+      color: var(--erik-gold);
+      font-size: 1rem;
+    }
+
+    .record-title {
+      margin: 0 0 4px;
+      font-weight: 600;
+      color: #f9fafb;
+      font-size: 1rem;
+    }
+
+    .record-body {
+      margin: 0;
+      line-height: 1.7;
+      color: var(--erik-text-soft);
+      font-size: 0.95rem;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
     @media (max-width: 900px) {
+      .erik-hero { padding: 56px 0 22px; }
+
       .erik-intro {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 32px;
+        grid-template-columns: 1fr;
+        gap: 28px;
       }
+      .erik-intro-img { order: -1; }
 
-      .erik-intro-img {
-        order: -1;
-      }
-
-      .erik-record-grid {
+      .bio-layout {
         grid-template-columns: 1fr;
       }
+
+      .bio-summary {
+        position: static; /* no sticky on mobile */
+      }
+
+      .erik-photo-frame { width: 220px; height: 220px; }
     }
   </style>
 </head>
@@ -450,281 +505,391 @@
 
   <main>
     <!-- HERO / INTRO -->
-    <section class="erik-intro">
-      <div>
-        <p class="erik-kicker">54th Assembly District · North Brooklyn</p>
-        <h1>Meet <span>Assembly Member Erik Dilan</span></h1>
-        <p class="erik-intro-lede">
-          For more than two decades, Erik Martin Dilan has been a steady, experienced
-          voice for North Brooklyn – fighting for safer streets, stable housing, and
-          the resources working families need to stay and thrive in the communities
-          they call home.
-        </p>
-        <p class="erik-intro-sub">
-          A lifelong Brooklynite and graduate of New York City public schools, Erik brings
-          deep neighborhood roots and practical legislative experience to Albany every day.
-        </p>
+    <section class="erik-hero">
+      <div class="erik-shell">
+        <div class="erik-intro">
+          <div>
+            <p class="erik-kicker">54th Assembly District · North Brooklyn</p>
+            <h1>Meet <span>Assembly Member Erik Dilan</span></h1>
+            <p class="erik-intro-lede">
+              For more than two decades, Erik Martin Dilan has been a steady, experienced
+              voice for North Brooklyn – fighting for safer streets, stable housing, and
+              the resources working families need to stay and thrive in the communities
+              they call home.
+            </p>
+            <p class="erik-intro-sub">
+              Born and raised in Bushwick and graduate of New York City public schools, Erik brings
+              deep neighborhood roots and practical legislative experience to Albany every day.
+            </p>
 
-        <ul class="erik-highlights">
-          <li><span>Serving in the New York State Assembly since 2015, representing the 54th District.</span></li>
-          <li><span>Chair of the Assembly Committee on Correction and member of key committees on housing, energy, insurance, and the budget.</span></li>
-          <li><span>Former New York City Council Member with a long record of neighborhood-level problem solving.</span></li>
-          <li><span>Trusted advocate for tenants, seniors, and working families across North Brooklyn.</span></li>
-        </ul>
-      </div>
+            <ul class="erik-highlights">
+              <li><span>Chairman of the Assembly’s Committee on Correction.</span></li>
+              <li><span>Former NYC Council Member who Chaired the Housing &amp; Buildings Committee, and Brooklyn Delegation.</span></li>
+              <li><span>Former Member of Community School Board #32.</span></li>
+              <li><span>Former Member of Community Board # 4.</span></li>
+            </ul>
+          </div>
 
-      <div class="erik-intro-img">
-        <div class="erik-photo-frame">
-          <img src="erik-main-photo.jpg" alt="Assemblymember Erik M. Dilan" />
+          <div class="erik-intro-img">
+            <div class="erik-photo-frame">
+              <img src="erik_front_page_photo.jpg" alt="Assemblymember Erik M. Dilan" />
+              
+            </div>
+          </div>
         </div>
-        </p>
       </div>
     </section>
 
-    <!-- RECORD OF SERVICE -->
+    <!-- BIOGRAPHY -->
+    <section class="erik-bio">
+      <div class="erik-shell">
+        <article class="erik-panel">
+          <div class="erik-label">
+            <i class="fa-solid fa-id-card"></i>
+            Biography
+          </div>
+
+          <div class="bio-layout" aria-label="Biography">
+            <!-- LEFT: sticky summary on desktop -->
+            <aside class="bio-summary">
+              <p class="bio-kicker">Biography</p>
+              <h2 class="bio-title">A Record of Service, Grounded in North Brooklyn</h2>
+              <p class="bio-subtitle">
+                A practical overview of Assembly Member Erik M. Dilan’s background, public service journey,
+                and leadership priorities in Albany.
+              </p>
+
+              <ul class="bio-quickfacts" aria-label="Quick facts">
+                <li>
+                  <strong>District</strong>
+                  54th Assembly District (North Brooklyn)
+                </li>
+                <li>
+                  <strong>Focus</strong>
+                  Housing stability, public safety, working families
+                </li>
+                <li>
+                  <strong>Experience</strong>
+                  City + State government leadership roles
+                </li>
+              </ul>
+            </aside>
+
+            <!-- RIGHT: accordion list -->
+            <div class="bio-accordion">
+              <!-- Card 1 -->
+              <article class="bio-card bio-accordion-item">
+                <button class="bio-accordion-header" type="button" aria-expanded="false">
+                  <span class="bio-tag">Roots</span>
+                  <h3 class="bio-card-title">North Brooklyn, Through and Through</h3>
+                  <span class="bio-accordion-icon" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </span>
+                </button>
+
+                <div class="bio-accordion-body" hidden>
+                  <p>
+                    Erik Martin Dilan is a lifelong resident of North Brooklyn. Born in Bushwick on May 11, 1974,
+                    he is of Puerto Rican and African American descent and was raised in a family deeply connected
+                    to public service.
+                  </p>
+                  <p>
+                    He is the son of former New York State Senator Martin Malavé Dilan and Debra Dilan—bringing
+                    lived neighborhood experience and a clear understanding of how government decisions impact
+                    working families.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Card 2 -->
+              <article class="bio-card bio-accordion-item">
+                <button class="bio-accordion-header" type="button" aria-expanded="false">
+                  <span class="bio-tag">Education</span>
+                  <h3 class="bio-card-title">NYC Public Schools and Business Training</h3>
+                  <span class="bio-accordion-icon" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </span>
+                </button>
+
+                <div class="bio-accordion-body" hidden>
+                  <p>
+                    A product of New York City public schools, Erik attended P.S. 151, Philippa Schuyler Middle School,
+                    and Norman Thomas High School.
+                  </p>
+                  <p>
+                    He later attended St. John’s University, earning an Associate of Science in Business Administration—an
+                    academic foundation that supports his focus on operational discipline, budgeting, and measurable results
+                    in government.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Card 3 -->
+              <article class="bio-card bio-accordion-item">
+                <button class="bio-accordion-header" type="button" aria-expanded="false">
+                  <span class="bio-tag">Community</span>
+                  <h3 class="bio-card-title">Service Before Titles</h3>
+                  <span class="bio-accordion-icon" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </span>
+                </button>
+
+                <div class="bio-accordion-body" hidden>
+                  <p>
+                    Erik’s public service began locally—serving on Community School Board #32 and Brooklyn Community Board #4,
+                    helping shape education priorities and neighborhood policy with other civic leaders and residents.
+                  </p>
+                  <p>
+                    He has also remained active at the community level as a volunteer baseball and basketball coach—reflecting
+                    a steady commitment to youth, families, and neighborhood life.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Card 4 -->
+              <article class="bio-card bio-accordion-item">
+                <button class="bio-accordion-header" type="button" aria-expanded="false">
+                  <span class="bio-tag">City Hall</span>
+                  <h3 class="bio-card-title">12 Years in the NYC Council</h3>
+                  <span class="bio-accordion-icon" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </span>
+                </button>
+
+                <div class="bio-accordion-body" hidden>
+                  <p>
+                    Prior to the State Assembly, Erik served 12 years in the New York City Council. During his tenure,
+                    he chaired the Housing &amp; Buildings Committee and the Brooklyn Delegation and served on the budget
+                    negotiating team.
+                  </p>
+                  <p>
+                    In these roles, he helped set legislative priorities on housing and construction, supported the passage
+                    of the City budget, and advanced strategic investments in neighborhood schools, parks, senior centers,
+                    cultural institutions, and nonprofit partners across Brooklyn.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Card 5 (featured) -->
+              <article class="bio-card bio-card--featured bio-accordion-item">
+                <button class="bio-accordion-header" type="button" aria-expanded="false">
+                  <span class="bio-tag">Albany</span>
+                  <h3 class="bio-card-title">State Assembly Leadership Since 2015</h3>
+                  <span class="bio-accordion-icon" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </span>
+                </button>
+
+                <div class="bio-accordion-body" hidden>
+                  <p>
+                    Erik was first sworn into the New York State Assembly in 2015 and has continued serving the 54th District,
+                    including parts of Bushwick, Cypress Hills, and East New York.
+                  </p>
+                  <p>
+                    In 2023, he was appointed Chair of the Assembly’s Committee on Correction, with a focus on improving
+                    transparency, safety, and independent oversight. In 2025, the Correction omnibus law—legislation he
+                    prime sponsored—advanced reforms aligned with those priorities.
+                  </p>
+                  <p>
+                    He has also emphasized reducing unnecessary incarceration through sentencing reform, earned time,
+                    merit time, and expanded alternatives to incarceration.
+                  </p>
+                </div>
+              </article>
+
+              <!-- Card 6 -->
+              <article class="bio-card bio-accordion-item">
+                <button class="bio-accordion-header" type="button" aria-expanded="false">
+                  <span class="bio-tag">Committees</span>
+                  <h3 class="bio-card-title">Committee Service and Caucus Work</h3>
+                  <span class="bio-accordion-icon" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </span>
+                </button>
+
+                <div class="bio-accordion-body" hidden>
+                  <ul class="bio-list">
+                    <li>Chair, Assembly Committee on Correction</li>
+                    <li>Member, Ways &amp; Means Committee</li>
+                    <li>Member, Energy Committee</li>
+                    <li>Member, Insurance Committee</li>
+                    <li>Member, Corporations, Authorities &amp; Commissions Committee</li>
+                    <li>Member, Black, Puerto Rican, Hispanic &amp; Asian Legislative Caucus</li>
+                    <li>Member, Puerto Rican/Hispanic Task Force</li>
+                  </ul>
+                </div>
+              </article>
+
+              <!-- Card 7 -->
+              <article class="bio-card bio-accordion-item">
+                <button class="bio-accordion-header" type="button" aria-expanded="false">
+                  <span class="bio-tag">Family</span>
+                  <h3 class="bio-card-title">Home, Family, and Community</h3>
+                  <span class="bio-accordion-icon" aria-hidden="true">
+                    <i class="fa-solid fa-chevron-down"></i>
+                  </span>
+                </button>
+
+                <div class="bio-accordion-body" hidden>
+                  <p>
+                    Erik resides in the Cypress Hills section of Brooklyn with his wife, Jannitza, and their children,
+                    Daniel, Lea, and Matthew.
+                  </p>
+                  <p>
+                    As a husband and father of three, he brings a family-first lens to public safety, housing stability,
+                    and neighborhood opportunity—priorities that directly affect daily life in North Brooklyn.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RECORD OF SERVICE (NOW AFTER BIO + VERTICAL ON DESKTOP) -->
     <section class="erik-record">
-      <div class="erik-record-inner">
-        <div class="erik-record-header">
-          <div>
-            <div class="erik-record-label">
-              <i class="fa-solid fa-star"></i>
-              Record of Service
-            </div>
-            <h2>Grounded in Brooklyn. Focused on Results.</h2>
+      <div class="erik-shell">
+        <div class="erik-panel">
+          <div class="erik-label">
+            <i class="fa-solid fa-star"></i>
+            Record of Service
           </div>
-        </div>
 
-        <div class="erik-record-grid">
-          <div>
-            <div class="erik-record-item-title">In the Assembly</div>
-            <div class="erik-record-item-body">
-              As Chair of the Committee on Correction and a member of the Housing, Energy,
-              Insurance, and Ways & Means Committees, Erik helps shape the state budget and
-              statewide policy on housing, public safety, and core services for working families.
-            </div>
-          </div>
-          <div>
-            <div class="erik-record-item-title">In City Government</div>
-            <div class="erik-record-item-body">
-              Before joining the Assembly, Erik served on the New York City Council, where he
-              focused on land use, neighborhood planning, and local investments in schools,
-              parks, and senior centers.
-            </div>
-          </div>
-          <div>
-            <div class="erik-record-item-title">In the Community</div>
-            <div class="erik-record-item-body">
-              Erik grew up in North Brooklyn and has worked with tenant leaders, block
-              associations, faith institutions, and small businesses to keep long-time
-              residents in their homes and strengthen the fabric of the district.
-            </div>
+          <h2>Grounded in Brooklyn. Focused on Results.</h2>
+
+          <div class="erik-record-list">
+            <article class="record-item">
+              <div class="record-item-inner">
+                <div class="record-icon" aria-hidden="true">
+                  <i class="fa-solid fa-landmark"></i>
+                </div>
+                <div>
+                  <h3 class="record-title">In the Assembly</h3>
+                  <p class="record-body">
+                    As Chair of the Committee on Correction and a member of the Housing, Energy,
+                    Insurance, and Ways &amp; Means Committees, Erik helps shape the state budget and
+                    statewide policy on housing, public safety, and core services for working families.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="record-item">
+              <div class="record-item-inner">
+                <div class="record-icon" aria-hidden="true">
+                  <i class="fa-solid fa-city"></i>
+                </div>
+                <div>
+                  <h3 class="record-title">In City Government</h3>
+                  <p class="record-body">
+                    Before joining the Assembly, Erik was elected to the NYC Council where he was the Chairperson of the Housing and Buildings Committee,
+                    and the Brooklyn Delegation. There Erik focused on housing law, housing preservation, and affordable housing development.
+                    As Chair of the Brooklyn Delegation, he focused on strategic investments in our neighborhood schools, parks, senior centers,
+                    cultural institutions and other non-profits in the District, and throughout Brooklyn.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="record-item">
+              <div class="record-item-inner">
+                <div class="record-icon" aria-hidden="true">
+                  <i class="fa-solid fa-people-group"></i>
+                </div>
+                <div>
+                  <h3 class="record-title">In the Community</h3>
+                  <p class="record-body">
+                    A husband and father of three children, Erik understands the importance of putting families first.
+                  </p>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- PRIORITIES / ACCORDION -->
-    <section class="erik-section">
-      <article class="erik-section-inner">
-        <div class="erik-section-label">
-          <i class="fa-solid fa-list-check"></i>
-          Erik’s Priorities
-        </div>
-        <div class="erik-section-title-row">
-          <h2>Putting North Brooklyn Families First</h2>
-        </div>
-        <p class="erik-section-intro">
-          In Albany, Erik’s work is guided by a simple commitment: government should make it
-          easier—not harder—for families to build stable, secure lives in the neighborhoods
-          they love. His agenda focuses on housing, public safety, and economic security.
-        </p>
-
-        <div class="accordion">
-          <!-- Housing -->
-          <div class="accordion-item">
-            <button class="accordion-header" type="button">
-              <div class="erik-section-header-text">
-                <div class="accordion-eyebrow">
-                  <i class="fa-solid fa-building"></i>
-                  Housing & Stability
-                </div>
-                <h3 class="accordion-title">Fighting for Affordable, Stable Housing</h3>
-              </div>
-              <span class="accordion-icon">
-                <i class="fa-solid fa-chevron-down"></i>
-              </span>
-            </button>
-            <div class="accordion-body">
-              <p>
-                Erik has been at the forefront of efforts to strengthen tenant protections,
-                expand rent stabilization, and fund the construction and preservation of
-                truly affordable housing. He has backed tougher penalties for landlord
-                harassment, pushed to curb speculative real-estate practices, and fought
-                for investments that keep long-time residents rooted in North Brooklyn.
-              </p>
-            </div>
-          </div>
-
-          <!-- Public Safety -->
-          <div class="accordion-item">
-            <button class="accordion-header" type="button">
-              <div class="erik-section-header-text">
-                <div class="accordion-eyebrow">
-                  <i class="fa-solid fa-shield-halved"></i>
-                  Public Safety & Justice
-                </div>
-                <h3 class="accordion-title">Building Safer, Fairer Neighborhoods</h3>
-              </div>
-              <span class="accordion-icon">
-                <i class="fa-solid fa-chevron-down"></i>
-              </span>
-            </button>
-            <div class="accordion-body">
-              <p>
-                As Chair of the Committee on Correction, Erik has led oversight of jails
-                and prisons while advancing reforms that improve safety, transparency, and
-                reentry supports. He supports targeted public safety investments, youth
-                programs, and violence interruption initiatives that reduce crime and build
-                trust between communities and law enforcement—because families deserve both
-                safety and justice.
-              </p>
-            </div>
-          </div>
-
-          <!-- Working Families -->
-          <div class="accordion-item">
-            <button class="accordion-header" type="button">
-              <div class="erik-section-header-text">
-                <div class="accordion-eyebrow">
-                  <i class="fa-solid fa-people-group"></i>
-                  Working Families & Opportunity
-                </div>
-                <h3 class="accordion-title">Delivering for Working Families</h3>
-              </div>
-              <span class="accordion-icon">
-                <i class="fa-solid fa-chevron-down"></i>
-              </span>
-            </button>
-            <div class="accordion-body">
-              <p>
-                Erik continues to champion legislation that lowers everyday costs and
-                expands opportunity for working people—from childcare and senior services
-                to consumer protections and fair workplace standards. He has supported
-                policies that make credit reporting more transparent, ensure state programs
-                reach families in need, and keep North Brooklyn’s working- and middle-class
-                residents from being priced out of the city they built.
-              </p>
-            </div>
-          </div>
-        </div>
-      </article>
     </section>
   </main>
 
   <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container footer-inner">
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-social">
+        <a href="https://www.facebook.com/erikmartindilan/" class="footer-social-pill social-pill--facebook" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
 
-<!-- SOCIAL FOOTER -->
-<div class="footer-social">
-  <a
-    href="https://www.facebook.com/erikmartindilan/"
-    class="footer-social-pill social-pill--facebook"
-    target="_blank"
-    rel="noopener"
-    aria-label="Facebook"
-  >
-    <i class="fa-brands fa-facebook-f"></i>
-  </a>
+        <a href="https://www.instagram.com/edilan54/?hl=en" class="footer-social-pill social-pill--instagram" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
 
-  <a
-    href="https://www.instagram.com/edilan54/?hl=en"
-    class="footer-social-pill social-pill--instagram"
-    target="_blank"
-    rel="noopener"
-    aria-label="Instagram"
-  >
-    <i class="fa-brands fa-instagram"></i>
-  </a>
+        <a href="https://assembly.state.ny.us/mem/Erik-M-Dilan/video/" class="footer-social-pill social-pill--youtube" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
 
-  <a
-    href="https://assembly.state.ny.us/mem/Erik-M-Dilan/video/"
-    class="footer-social-pill social-pill--youtube"
-    target="_blank"
-    rel="noopener"
-    aria-label="YouTube"
-  >
-    <i class="fa-brands fa-youtube"></i>
-  </a>
-
-  <a
-    href="https://www.tiktok.com/@YourHandle"
-    class="footer-social-pill social-pill--tiktok"
-    target="_blank"
-    rel="noopener"
-    aria-label="TikTok"
-  >
-    <i class="fa-brands fa-tiktok"></i>
-  </a>
-</div>
+        <a href="https://www.tiktok.com/@YourHandle" class="footer-social-pill social-pill--tiktok" target="_blank" rel="noopener" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 
   <!-- SCRIPTS -->
   <script>
     // Load shared navbar into #site-header
-    fetch('navbar.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('site-header').innerHTML = html;
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("site-header").innerHTML = html;
 
-        // Wire up nav toggle AFTER navbar is injected
-        const navToggle = document.querySelector('.nav-toggle');
-        const mainMenu = document.getElementById('primary-nav');
+        const navToggle = document.querySelector(".nav-toggle");
+        const mainMenu = document.getElementById("primary-nav");
 
         if (navToggle && mainMenu) {
-          navToggle.addEventListener('click', () => {
-            const isOpen = mainMenu.classList.toggle('is-open');
-            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            document.body.classList.toggle('menu-open', isOpen);
+          navToggle.addEventListener("click", () => {
+            const isOpen = mainMenu.classList.toggle("is-open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            document.body.classList.toggle("menu-open", isOpen);
           });
         }
 
-        // Highlight active link based on current file
-        const links = document.querySelectorAll('.main-menu .nav-link');
-        const path = window.location.pathname.split('/').pop() || 'index.html';
+        // Highlight active link
+        const links = document.querySelectorAll(".main-menu .nav-link");
+        const path = window.location.pathname.split("/").pop() || "index.html";
 
-        links.forEach(link => {
-          const href = link.getAttribute('href');
-          if (href === path || href === 'WhoisErik.html') {
-            link.classList.add('active');
-          }
+        links.forEach((link) => {
+          const href = link.getAttribute("href");
+          if (href === path || href === "WhoisErik.html") link.classList.add("active");
         });
       })
-      .catch(err => {
-        console.error('Error loading navbar:', err);
-      });
+      .catch((err) => console.error("Error loading navbar:", err));
 
-    // Footer year
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
+    // BIO accordion: one open at a time
+    document.addEventListener("DOMContentLoaded", () => {
+      const bioItems = document.querySelectorAll(".bio-accordion-item");
 
-    // Accordion: one open at a time
-    document.addEventListener('DOMContentLoaded', () => {
-      const items = document.querySelectorAll('.accordion-item');
-      const headers = document.querySelectorAll('.accordion-header');
+      bioItems.forEach((item) => {
+        const header = item.querySelector(".bio-accordion-header");
+        const body = item.querySelector(".bio-accordion-body");
+        if (!header || !body) return;
 
-      headers.forEach(header => {
-        header.addEventListener('click', () => {
-          const parent = header.closest('.accordion-item');
-          const isOpen = parent.classList.contains('is-open');
+        header.addEventListener("click", () => {
+          const isOpen = item.classList.contains("is-open");
 
-          // Close all
-          items.forEach(item => item.classList.remove('is-open'));
+          // close all
+          bioItems.forEach((i) => {
+            i.classList.remove("is-open");
+            const h = i.querySelector(".bio-accordion-header");
+            const b = i.querySelector(".bio-accordion-body");
+            if (h) h.setAttribute("aria-expanded", "false");
+            if (b) b.hidden = true;
+          });
 
-          // Re-open this one if it was closed
+          // reopen if it was closed
           if (!isOpen) {
-            parent.classList.add('is-open');
+            item.classList.add("is-open");
+            header.setAttribute("aria-expanded", "true");
+            body.hidden = false;
           }
         });
       });

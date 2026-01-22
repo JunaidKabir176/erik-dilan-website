@@ -15,8 +15,8 @@ body {
 }
 
 body {
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   color: #0f172a;
   background: #0b1b4f; /* Navy background */
   line-height: 1.6;
@@ -27,7 +27,6 @@ img {
   height: auto;
   display: block;
 }
-
 
 a {
   color: inherit;
@@ -164,14 +163,11 @@ body.whois-erik-page .site-header {
 /* =========================
    MOBILE OVERLAY MENU (CLEAN + CONSISTENT)
 ========================= */
-
 @media (max-width: 900px) {
-  /* show burger */
   .nav-toggle {
     display: flex;
   }
 
-  /* logo size */
   .logo img {
     height: 56px;
   }
@@ -183,7 +179,6 @@ body.whois-erik-page .site-header {
     margin: 0;
     list-style: none;
 
-    /* THIS sets the left edge for EVERYTHING */
     padding: 80px 24px 32px;
 
     display: flex;
@@ -234,29 +229,28 @@ body.whois-erik-page .site-header {
 
   /* Links: vertical padding only (no left/right padding) */
   .main-menu .nav-link {
-    display: block;        /* consistent tap target */
-    width: 100%;           /* consistent hit area */
-    padding: 10px 0;       /* vertical only */
-    margin: 0;             /* no offsets */
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
     font-size: 1.05rem;
     color: #f9fafb;
     border-bottom: none;
   }
 
-/* Contribute: align its TEXT with other link text */
-.main-menu .nav-link.nav-cta {
-  display: inline-flex;
-  width: auto;
+  /* Contribute: align its TEXT with other link text */
+  .main-menu .nav-link.nav-cta {
+    display: inline-flex;
+    width: auto;
 
-  margin: 16px 0 0 0 !important;
-  padding: 12px 18px;     /* pill padding stays */
-  line-height: 1;
-  white-space: nowrap;
+    margin: 16px 0 0 0 !important;
+    padding: 12px 18px;
+    line-height: 1;
+    white-space: nowrap;
 
-  /* Pull the pill left so the TEXT starts where other link text starts */
-  transform: translateX(-4px);
-}
-  /* Keep header layout stable */
+    transform: translateX(-4px);
+  }
+
   .nav-inner {
     justify-content: space-between;
   }
@@ -267,10 +261,226 @@ body.menu-open {
   overflow: hidden;
 }
 
+/* Erik Main Headshot Centering Code */
+.hero-photo-frame{
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.hero-photo-frame img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: 50% 20%; /* centered horizontally, a bit higher to keep face */
+}
+
+/* =========================
+   WHO IS ERIK PAGE — BASE THEME
+========================= */
+
+.whois-erik-page {
+  background: #0b1b4f;
+  color: #f9fafb;
+}
+
+/* =====================================================
+   BIOGRAPHY — FIXED DESKTOP
+   Problem you had: duplicated BIO blocks + mobile rules
+   leaking / overriding desktop behavior.
+   Fix: one source of truth + clear breakpoints.
+===================================================== */
+
+.bio-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px 56px;
+}
+
+/* Header block */
+.bio-header {
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.85);
+  padding: 18px 20px;
+  margin: 0 0 14px;
+}
+
+.bio-kicker {
+  margin: 0 0 6px;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #cbd5f5;
+}
+
+.bio-title {
+  margin: 0 0 8px;
+  font-size: 1.45rem;
+  color: #c4b5fd;
+  letter-spacing: 0.04em;
+}
+
+.bio-subtitle {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: #cbd5f5;
+}
+
+/* ✅ Desktop: force the SAME single-column stack you see on mobile */
+.bio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+/* Card shell */
+.bio-card {
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  background: rgba(15, 23, 42, 0.92);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.85);
+  padding: 14px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle highlight */
+.bio-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(248, 250, 252, 0.05),
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.bio-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tag */
+.bio-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(196, 181, 253, 0.6);
+  color: #c4b5fd;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.bio-card-title {
+  margin: 0;
+  font-size: 1.02rem;
+  color: #f9fafb;
+  letter-spacing: 0.02em;
+}
+
+/* Body copy */
+.bio-card p {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #e5e7eb;
+}
+
+.bio-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Lists */
+.bio-list {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #e5e7eb;
+}
+
+.bio-list li {
+  margin: 6px 0;
+}
+
+/* Featured card: keep same width, just a slightly stronger border */
+.bio-card--featured {
+  border-color: rgba(196, 181, 253, 0.55);
+}
+
+/* Accordion button behavior (if you use it) */
+.bio-accordion-header {
+  width: 100%;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 6px 12px;
+
+  padding: 0;
+  margin: 0;
+}
+
+.bio-accordion-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  background: rgba(0, 18, 41, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.bio-accordion-icon i {
+  font-size: 0.8rem;
+  color: #c4b5fd;
+  transition: transform 0.2s ease;
+}
+
+.bio-accordion-body {
+  margin-top: 10px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.25s ease, opacity 0.25s ease;
+}
+
+.bio-card.is-open .bio-accordion-body {
+  max-height: 900px;
+  opacity: 1;
+}
+
+.bio-card.is-open .bio-accordion-body[hidden] {
+  display: block;
+}
+
+.bio-card.is-open .bio-accordion-icon i {
+  transform: rotate(180deg);
+}
+
 /* Issues Page Color Correction */
 body.issues-page {
   color: #f5f5f7;
-  background: #0b1b4f; /* match global navy background */
+  background: #0b1b4f;
 }
 
 /* =========================
@@ -299,7 +509,7 @@ body.issues-page {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: #c4b5fd; /* soft lavender accent */
+  color: #c4b5fd;
   margin: 0 0 10px;
 }
 
@@ -328,8 +538,6 @@ body.issues-page {
   color: #e5e7eb;
 }
 
-/* Hero buttons */
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -352,7 +560,6 @@ body.issues-page {
     transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* primary = lavender call-to-action */
 .btn-primary {
   background: linear-gradient(135deg, #c4b5fd, #a78bfa);
   color: #111827;
@@ -369,15 +576,13 @@ body.issues-page {
 .btn-outline {
   background: transparent;
   color: #f9fafb;
-  border-color: #c4b5fd; /* lavender */
+  border-color: #c4b5fd;
 }
 
 .btn-outline:hover {
   background: rgba(15, 23, 42, 0.5);
   text-decoration: none;
 }
-
-/* Hero photo */
 
 .hero-photo {
   text-align: center;
@@ -387,21 +592,15 @@ body.issues-page {
   width: 220px;
   height: 220px;
   margin: 0 auto 12px;
-  border-radius: 50%;
   padding: 6px;
-  background: radial-gradient(
-    circle at top,
-    #c4b5fd 0%,
-    #2563eb 40%,
-    #0b1b4f 80%
-  );
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  border-radius: 14px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
 }
 
 .hero-photo-frame img {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: 10px;
   object-fit: cover;
 }
 
@@ -451,7 +650,7 @@ body.issues-page {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #c4b5fd; /* lavender instead of gold */
+  color: #c4b5fd;
 }
 
 .panel-link:hover {
@@ -467,7 +666,6 @@ body.issues-page {
   flex-direction: column;
 }
 
-/* Horizontal icon row */
 .social-row {
   display: flex;
   flex-wrap: wrap;
@@ -490,32 +688,17 @@ body.issues-page {
   background: rgba(15, 23, 42, 0.2);
   color: #f9fafb;
   cursor: pointer;
-  transition:
-    background 0.18s ease,
-    transform 0.18s ease,
-    box-shadow 0.18s ease;
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .social-pill i {
   font-size: 0.9rem;
 }
 
-/* Brand tints (kept subtle to match your theme) */
-.social-pill--youtube i {
-  color: #ff4b4b;
-}
-
-.social-pill--instagram i {
-  color: #f97316;
-}
-
-.social-pill--facebook i {
-  color: #60a5fa;
-}
-
-.social-pill--tiktok i {
-  color: #a855f7;
-}
+.social-pill--youtube i { color: #ff4b4b; }
+.social-pill--instagram i { color: #f97316; }
+.social-pill--facebook i { color: #60a5fa; }
+.social-pill--tiktok i { color: #a855f7; }
 
 .social-pill:hover {
   background: rgba(15, 23, 42, 0.6);
@@ -524,7 +707,6 @@ body.issues-page {
   text-decoration: none;
 }
 
-/* Social embeds layout */
 .social-embeds {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -544,14 +726,13 @@ body.issues-page {
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #c4b5fd; /* lavender */
+  color: #c4b5fd;
 }
 
-/* Responsive iframe wrapper (16:9) */
 .embed-frame {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 aspect ratio */
+  padding-top: 56.25%;
   overflow: hidden;
   border-radius: 8px;
 }
@@ -563,7 +744,6 @@ body.issues-page {
   height: 100%;
 }
 
-/* Stack embeds on small screens */
 @media (max-width: 600px) {
   .social-embeds {
     grid-template-columns: 1fr;
@@ -786,8 +966,9 @@ body.issues-page {
 }
 
 .signup-btn {
-  align-self: flex-start;
-  margin-top: 6px;
+  display: block;
+  width: fit-content;
+  margin: 6px auto 14px;
 }
 
 .signup-disclaimer {
@@ -851,14 +1032,14 @@ body.issues-page {
 
 .footer-social {
   display: flex;
-  justify-content: space-evenly; /* evenly distributes buttons */
+  justify-content: space-evenly;
   align-items: center;
-  max-width: 520px;              /* controls spread width */
-  margin: 0 auto 20px;           /* center + spacing below */
+  max-width: 520px;
+  margin: 0 auto 20px;
 }
 
 .footer-social a {
-  width: 56px;                   /* bigger tap target */
+  width: 56px;
   height: 56px;
   border-radius: 50%;
   background: #1e293b;
@@ -866,7 +1047,7 @@ body.issues-page {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;               /* BIGGER ICON */
+  font-size: 24px;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
@@ -874,7 +1055,6 @@ body.issues-page {
   background: #2563eb;
   transform: translateY(-3px) scale(1.05);
 }
-
 
 /* =========================
    Responsive
@@ -919,15 +1099,6 @@ body.issues-page {
   }
 }
 
-/* =====================================================
-   WHO IS ERIK PAGE — DEMOCRATIC BRANDED VARIATION
-   ===================================================== */
-
-.whois-erik-page {
-  background: #0b1b4f;
-  color: #f9fafb;
-}
-
 /* ---- MAIN INTRO SECTION ---- */
 
 .erik-intro {
@@ -949,7 +1120,7 @@ body.issues-page {
 }
 
 .erik-intro h1 span {
-  color: #c4b5fd; /* gold accent on name */
+  color: #c4b5fd;
 }
 
 .erik-intro p {
@@ -995,6 +1166,18 @@ body.issues-page {
   object-fit: cover;
 }
 
+@media (max-width: 900px) {
+  .erik-intro {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .erik-intro-img {
+    order: -1;
+    margin-bottom: 20px;
+  }
+}
+
 /* ---- ISSUE SECTIONS ---- */
 
 .erik-section {
@@ -1006,7 +1189,7 @@ body.issues-page {
 .erik-section h2 {
   font-size: 1.8rem;
   margin: 0 0 12px;
-  color: #c4b5fd; /* lavender section titles */
+  color: #c4b5fd;
   letter-spacing: 0.03em;
 }
 
@@ -1022,13 +1205,20 @@ body.issues-page {
   height: 1px;
   margin: 40px auto;
   max-width: 700px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #c4b5fd,  /* lavender */
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, #c4b5fd, transparent);
 }
+
+/* Center the 4th "Connect on Social Media" panel on desktop */
+@media (min-width: 900px) {
+  .panel-card--social {
+    grid-column: 2; /* Middle column */
+  }
+}
+
+/* =====================================================
+   VOTER INFORMATION PAGE
+   (LEFT EXACTLY AS-IS PER YOUR INSTRUCTION)
+===================================================== */
 
 /* =========================
    VOTER INFORMATION PAGE
@@ -1122,25 +1312,3 @@ body.voter-page {
     order: 1;
   }
 }
-
-/* ---- Responsive ---- */
-
-@media (max-width: 900px) {
-  .erik-intro {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .erik-intro-img {
-    order: -1;
-    margin-bottom: 20px;
-  }
-}
-
-/* Center the 4th "Connect on Social Media" panel on desktop */
-@media (min-width: 900px) {
-  .panel-card--social {
-    grid-column: 2; /* Middle column */
-  }
-}
-
