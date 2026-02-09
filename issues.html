@@ -43,6 +43,10 @@
       color: #f9fafb;
     }
 
+    body.issues-page {
+  min-height: calc(100vh + 1px);
+}
+
     /* HERO BAND */
     .issues-hero {
       padding: 52px 0 24px;
@@ -128,15 +132,6 @@
     width: 100%;
   }
 }
-
-    .issue-card {
-      background: #001229;
-      border-radius: 18px;
-      border: 1px solid rgba(191, 219, 254, 0.55);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-      position: relative;
-      overflow: hidden;
-    }
 
     .issue-card::before {
       content: "";
@@ -465,113 +460,98 @@ renovation of these facilities. Let’s get this done!
   </main>
 
   <!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container footer-inner">
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <!-- SOCIAL FOOTER -->
+      <div class="footer-social">
+        <a
+          href="https://www.facebook.com/erikmartindilan/"
+          class="footer-social-pill social-pill--facebook"
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook"
+        >
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
 
-<!-- SOCIAL FOOTER -->
-<div class="footer-social">
-  <a
-    href="https://www.facebook.com/erikmartindilan/"
-    class="footer-social-pill social-pill--facebook"
-    target="_blank"
-    rel="noopener"
-    aria-label="Facebook"
-  >
-    <i class="fa-brands fa-facebook-f"></i>
-  </a>
+        <a
+          href="https://www.instagram.com/edilan54/?hl=en"
+          class="footer-social-pill social-pill--instagram"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          <i class="fa-brands fa-instagram"></i>
+        </a>
 
-  <a
-    href="https://www.instagram.com/edilan54/?hl=en"
-    class="footer-social-pill social-pill--instagram"
-    target="_blank"
-    rel="noopener"
-    aria-label="Instagram"
-  >
-    <i class="fa-brands fa-instagram"></i>
-  </a>
+        <a
+          href="https://assembly.state.ny.us/mem/Erik-M-Dilan/video/"
+          class="footer-social-pill social-pill--youtube"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube"
+        >
+          <i class="fa-brands fa-youtube"></i>
+        </a>
 
-  <a
-    href="https://assembly.state.ny.us/mem/Erik-M-Dilan/video/"
-    class="footer-social-pill social-pill--youtube"
-    target="_blank"
-    rel="noopener"
-    aria-label="YouTube"
-  >
-    <i class="fa-brands fa-youtube"></i>
-  </a>
+        <a
+          href="https://www.tiktok.com/@erik.dilan54"
+          class="footer-social-pill social-pill--tiktok"
+          target="_blank"
+          rel="noopener"
+          aria-label="TikTok"
+        >
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
 
-  <a
-    href="https://www.tiktok.com/@YourHandle"
-    class="footer-social-pill social-pill--tiktok"
-    target="_blank"
-    rel="noopener"
-    aria-label="TikTok"
-  >
-    <i class="fa-brands fa-tiktok"></i>
-  </a>
-</div>
+  <!-- SCRIPTS (outside footer) -->
+  <script>
+    function setupIssueAccordion() {
+      const cards = document.querySelectorAll(".issue-card");
 
-  <!-- SCRIPTS -->
-<script>
-  function setupIssueAccordion() {
-    const cards = document.querySelectorAll('.issue-card');
+      cards.forEach((card) => {
+        const toggle = card.querySelector(".issue-toggle");
+        if (!toggle) return;
 
-    cards.forEach(card => {
-      const toggle = card.querySelector('.issue-toggle');
-      if (!toggle) return;
+        card.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
 
-      // Ensure all start closed
-      card.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-
-      toggle.addEventListener('click', () => {
-        const isOpen = card.classList.toggle('is-open');
-        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-    });
-  }
-
-  // Load shared navbar into #site-header
-  fetch('navbar.html')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('site-header').innerHTML = html;
-
-      // Burger / mobile toggle
-      const navToggle = document.querySelector('.nav-toggle');
-      const mainMenu = document.getElementById('primary-nav');
-
-      if (navToggle && mainMenu) {
-        navToggle.addEventListener('click', () => {
-          const isOpen = mainMenu.classList.toggle('is-open');
-          navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-          document.body.classList.toggle('menu-open', isOpen);
+        toggle.addEventListener("click", () => {
+          const isOpen = card.classList.toggle("is-open");
+          toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
         });
-      }
-
-      // Highlight active nav link
-      const links = document.querySelectorAll('.main-menu .nav-link');
-      const path = window.location.pathname.split('/').pop() || 'index.html';
-
-      links.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === path) {
-          link.classList.add('active');
-        }
       });
-    })
-    .catch(err => {
-      console.error('Error loading navbar:', err);
-    });
+    }
 
-  // Footer year
-  const yearSpan = document.getElementById('year');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+    fetch("navbar.html")
+      .then((response) => response.text())
+      .then((html) => {
+        document.getElementById("site-header").innerHTML = html;
 
-  // Initialize accordion once DOM is ready
-  document.addEventListener('DOMContentLoaded', setupIssueAccordion);
-</script>
+        const navToggle = document.querySelector(".nav-toggle");
+        const mainMenu = document.getElementById("primary-nav");
+
+        if (navToggle && mainMenu) {
+          navToggle.addEventListener("click", () => {
+            const isOpen = mainMenu.classList.toggle("is-open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            document.body.classList.toggle("menu-open", isOpen);
+          });
+        }
+
+        const links = document.querySelectorAll(".main-menu .nav-link");
+        const path = window.location.pathname.split("/").pop() || "index.html";
+
+        links.forEach((link) => {
+          if (link.getAttribute("href") === path) link.classList.add("active");
+        });
+      })
+      .catch((err) => console.error("Error loading navbar:", err));
+
+    document.addEventListener("DOMContentLoaded", setupIssueAccordion);
+  </script>
 </body>
 </html>
