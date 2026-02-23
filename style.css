@@ -53,7 +53,7 @@ a:hover {
 }
 
 .navbar {
-  background: #c4b5fd;
+  background: #F5841F;
   border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
@@ -136,11 +136,11 @@ a:hover {
   border-bottom-color: #0038a8;
 }
 
-/* Contribute button (desktop baseline) */
+/* Contribute button (navbar) */
 .nav-link.nav-cta {
   padding: 8px 14px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #c4b5fd, #ffffff);
+  background: linear-gradient(135deg, #F5841F, #ffffff);
   color: #111827;
   border: none;
   box-shadow: 0 8px 18px rgba(148, 163, 184, 0.4);
@@ -148,7 +148,7 @@ a:hover {
 }
 
 .nav-link.nav-cta:hover {
-  background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+  background: linear-gradient(135deg, #F5841F, #F5841F);
   text-decoration: none;
 }
 
@@ -304,7 +304,7 @@ body.menu-open {
 .bio-title {
   margin: 0 0 8px;
   font-size: 1.45rem;
-  color: #c4b5fd;
+  color: #F5841F;
   letter-spacing: 0.04em;
 }
 
@@ -359,8 +359,8 @@ body.menu-open {
   height: 26px;
   padding: 0 10px;
   border-radius: 999px;
-  border: 1px solid rgba(196, 181, 253, 0.6);
-  color: #c4b5fd;
+  border: 1px solid rgba(245, 132, 31, 0.6);
+  color: #F5841F;
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -402,7 +402,7 @@ body.menu-open {
 
 /* Featured card: keep same width, just a slightly stronger border */
 .bio-card--featured {
-  border-color: rgba(196, 181, 253, 0.55);
+  border-color: rgba(245, 132, 31, 0.55);
 }
 
 /* Accordion button behavior (if you use it) */
@@ -436,7 +436,7 @@ body.menu-open {
 
 .bio-accordion-icon i {
   font-size: 0.8rem;
-  color: #c4b5fd;
+  color: #F5841F;
   transition: transform 0.2s ease;
 }
 
@@ -493,7 +493,7 @@ body.issues-page {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: #c4b5fd;
+  color: #F5841F;
   margin: 0 0 10px;
 }
 
@@ -544,14 +544,14 @@ body.issues-page {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #c4b5fd, #a78bfa);
+  background: linear-gradient(135deg, #F5841F, #F5841F);
   color: #111827;
   border-color: transparent;
   box-shadow: 0 10px 30px rgba(148, 163, 184, 0.65);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #c4b5fd, #c7d2fe);
+  background: linear-gradient(135deg, #F5841F, #c7d2fe);
   text-decoration: none;
   transform: translateY(-1px);
 }
@@ -559,7 +559,7 @@ body.issues-page {
 .btn-outline {
   background: transparent;
   color: #f9fafb;
-  border-color: #c4b5fd;
+  border-color: #F5841F;
 }
 
 .btn-outline:hover {
@@ -571,21 +571,21 @@ body.issues-page {
   text-align: center;
 }
 
+/* HERO PHOTO: no crop + no border/card look */
 .hero-photo-frame {
-  width: 320px;     /* was 220px */
-  height: 320px;    /* was 220px */
-  margin: 0 auto 12px;
-  padding: 6px;
-  border-radius: 14px;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
-  overflow: hidden; /* keep cropping clean */
+  padding: 0;              /* remove inner border spacing */
+  border-radius: 0;        /* square edges (optional) */
+  box-shadow: none;        /* remove shadow */
+  overflow: visible;       /* don't crop anything */
+  background: transparent; /* remove any frame fill */
 }
 
 .hero-photo-frame img {
   width: 100%;
   height: 100%;
-  border-radius: 10px;
-  object-fit: cover;
+  border-radius: 0;        /* remove rounded edge "border" look */
+  object-fit: contain;     /* show entire image (no crop) */
+  object-position: center;
 }
 
 .hero-photo-caption {
@@ -634,7 +634,7 @@ body.issues-page {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #c4b5fd;
+  color: #F5841F;
 }
 
 .panel-link:hover {
@@ -710,7 +710,7 @@ body.issues-page {
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #c4b5fd;
+  color: #F5841F;
 }
 
 .embed-frame {
@@ -860,7 +860,7 @@ body.issues-page {
 }
 
 .amount-other {
-  border-color: #c4b5fd;
+  border-color: #F5841F;
 }
 
 /* =========================
@@ -945,7 +945,7 @@ body.issues-page {
 }
 
 .required {
-  color: #c4b5fd;
+  color: #F5841F;
   margin-left: 4px;
 }
 
@@ -980,7 +980,7 @@ body.issues-page {
 }
 
 .form-fallback a {
-  color: #c4b5fd;
+  color: #F5841F;
   text-decoration: none;
 }
 
@@ -1007,7 +1007,7 @@ body.issues-page {
 .paid-for {
   margin: 0 0 4px;
   font-weight: 600;
-  color: #c4b5fd;
+  color: #F5841F;
 }
 
 .footer-meta {
@@ -1100,11 +1100,11 @@ body.issues-page {
   margin: 0 0 14px;
   line-height: 1.15;
   font-weight: 700;
-  color: #c4b5fd;
+  color: #F5841F;
 }
 
 .erik-intro h1 span {
-  color: #c4b5fd;
+  color: #F5841F;
 }
 
 .erik-intro p {
@@ -1136,7 +1136,7 @@ body.issues-page {
   padding: 6px;
   background: radial-gradient(
     circle at top,
-    #c4b5fd 0%,
+    #F5841F 0%,
     #2563eb 35%,
     #0b1b4f 80%
   );
@@ -1173,7 +1173,7 @@ body.issues-page {
 .erik-section h2 {
   font-size: 1.8rem;
   margin: 0 0 12px;
-  color: #c4b5fd;
+  color: #F5841F;
   letter-spacing: 0.03em;
 }
 
@@ -1189,7 +1189,7 @@ body.issues-page {
   height: 1px;
   margin: 40px auto;
   max-width: 700px;
-  background: linear-gradient(90deg, transparent, #c4b5fd, transparent);
+  background: linear-gradient(90deg, transparent, #F5841F, transparent);
 }
 
 /* Center the 4th "Connect on Social Media" panel on desktop */

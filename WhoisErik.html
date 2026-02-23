@@ -37,7 +37,7 @@
   <style>
     :root {
       --erik-border: rgba(148, 163, 184, 0.6);
-      --erik-gold: #c4b5fd;
+      --erik-gold: #F5841F;
       --erik-text: #e5e7eb;
       --erik-text-soft: #cbd5f5;
       --erik-panel: rgba(15, 23, 42, 0.95);
@@ -152,16 +152,22 @@
       justify-content: center;
     }
 
-.erik-photo-frame {
-  width: 220px;       /* mobile/default */
-  height: 220px;      /* mobile/default */
-  margin: 0 auto 12px;
-  padding: 6px;
-  overflow: hidden;
-  border-radius: 14px;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(191, 219, 254, 0.35);
-  background: rgba(0, 18, 41, 0.35);
+.erik-photo-frame.erik-photo-frame--nocrop {
+  height: auto;            /* auto size */
+  padding: 0;              /* remove frame padding */
+  border: 0;               /* remove border */
+  border-radius: 0;        /* remove rounding */
+  background: transparent; /* remove frame background */
+  box-shadow: none;        /* remove shadow */
+  overflow: visible;       /* no cropping */
+}
+
+.erik-photo-frame.erik-photo-frame--nocrop img {
+  width: 100%;
+  height: auto;            /* keep natural ratio */
+  border-radius: 0;        /* remove rounding */
+  object-fit: contain;     /* ensure no crop */
+  object-position: center;
 }
 
 /* Desktop only: make it 320x320 */
@@ -326,7 +332,7 @@
     }
 
     .bio-card--featured {
-      border-color: rgba(196, 181, 253, 0.6);
+      border-color: rgba(15, 23, 42, 0.6);
       background: rgba(15, 23, 42, 0.95);
     }
 
@@ -462,7 +468,7 @@
       bottom: 10px;
       width: 3px;
       border-radius: 999px;
-      background: linear-gradient(180deg, rgba(196,181,253,0.9), rgba(37,99,235,0.9));
+      background: linear-gradient(180deg, rgba(245,132,31,0.9), rgba(37,99,235,0.9));
       opacity: 0.9;
     }
 
@@ -561,13 +567,9 @@
           </div>
 
           <div class="erik-intro-img">
-            <div class="erik-photo-frame">
+          <div class="erik-photo-frame erik-photo-frame--nocrop">
               <img src="erik_front_page_photo.jpg" alt="Assemblymember Erik M. Dilan" />
-              
-            </div>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- BIOGRAPHY -->
