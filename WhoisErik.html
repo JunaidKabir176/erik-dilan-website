@@ -152,24 +152,56 @@
       justify-content: center;
     }
 
-.erik-photo-frame{
-  width: 240px;
-  height: 240px;
+.erik-photo-frame {
+  width: 220px;       /* mobile/default */
+  height: 220px;      /* mobile/default */
+  margin: 0 auto 12px;
   padding: 6px;
-  overflow: hidden;              /* add this */
-  border-radius: 16px;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
   border: 1px solid rgba(191, 219, 254, 0.35);
   background: rgba(0, 18, 41, 0.35);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
 }
 
-.erik-photo-frame img{
+/* Desktop only: make it 320x320 */
+@media (min-width: 901px) {
+  .erik-photo-frame {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+.erik-photo-frame img {
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 10px;
   display: block;
   object-fit: cover;
-  object-position: 50% 20%;      /* add this */
+  object-position: 50% 20%;
+}
+
+/* Mobile/default size (keeps 220px on mobile) */
+.hero-photo-frame.hero-photo-frame--other {
+  width: 220px;
+  height: 220px;
+  overflow: hidden;
+}
+
+/* Desktop only: make it larger */
+@media (min-width: 901px) {
+  .hero-photo-frame.hero-photo-frame--other {
+    width: 320px;   /* change to what you want */
+    height: 320px;  /* change to what you want */
+  }
+}
+
+/* Ensure image fills the frame */
+.hero-photo-frame.hero-photo-frame--other img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
 }
 
     /* highlights as a clean “fact block” */
@@ -553,7 +585,7 @@
               <p class="bio-kicker">Biography</p>
               <h2 class="bio-title">A Record of Service, Grounded in North Brooklyn</h2>
               <p class="bio-subtitle">
-                A practical overview of Assembly Member Erik M. Dilan’s background, public service journey,
+                A practical overview of Assembly Member Erik Dilan’s background, public service journey,
                 and leadership priorities in Albany.
               </p>
 

@@ -1,0 +1,556 @@
+<!-- gallery.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Gallery | Erik Dilan for New York State Assembly</title>
+  <meta name="description" content="Photo gallery for Erik Dilan for New York State Assembly." />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" href="favicon_io_erik/favicon-32x32.png" />
+  <link rel="icon" type="image/png" href="website-logo-512x512.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    body.gallery-page {
+      background: linear-gradient(180deg, #0038a8 0%, #0b1b4f 55%, #001229 100%);
+      color: #f9fafb;
+    }
+
+    .gallery-hero {
+      padding: 56px 0 28px;
+      background: radial-gradient(circle at top left, #2563eb 0%, #0038a8 45%, #0b1b4f 100%);
+    }
+
+    .gallery-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .gallery-kicker {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #c4b5fd;
+      margin: 0 0 8px;
+    }
+
+    .gallery-title {
+      margin: 0 0 10px;
+      font-size: clamp(2.1rem, 3.8vw, 2.7rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .gallery-lede {
+      margin: 0;
+      max-width: 760px;
+      color: #e5e7eb;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .gallery-section {
+      padding: 28px 0 64px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .gallery-card {
+      border-radius: 18px;
+      border: 1px solid rgba(191, 219, 254, 0.45);
+      background: rgba(15, 23, 42, 0.92);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ✅ KEY CHANGE: let images define tile height (no forced aspect ratio) */
+    .gallery-thumb {
+      width: 100%;
+      padding: 10px;
+      background: rgba(0, 18, 41, 0.35);
+    }
+
+    /* ✅ KEY CHANGE: no cropping; image fits within tile */
+    .gallery-thumb img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.12);
+    }
+
+    .gallery-meta {
+      padding: 10px 12px 14px;
+      border-top: 1px solid rgba(191, 219, 254, 0.15);
+    }
+
+    .gallery-caption {
+      margin: 0;
+      color: #e5e7eb;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    /* Simple modal viewer */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      z-index: 200;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-dialog {
+      width: min(1100px, 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(191, 219, 254, 0.25);
+      background: rgba(0, 18, 41, 0.75);
+      overflow: hidden;
+      box-shadow: 0 22px 65px rgba(0, 0, 0, 0.75);
+      position: relative;
+    }
+
+    /* ✅ Always show entire image in lightbox */
+    .lightbox-img {
+      width: 100%;
+      height: auto;
+      max-height: 78vh;
+      display: block;
+      object-fit: contain;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .lightbox-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      color: #e5e7eb;
+      font-size: 0.92rem;
+      border-top: 1px solid rgba(191, 219, 254, 0.18);
+    }
+
+    .lightbox-caption {
+      margin: 0;
+      color: #cbd5f5;
+    }
+
+    .lightbox-btn {
+      border: 1px solid rgba(191, 219, 254, 0.35);
+      background: rgba(0, 18, 41, 0.35);
+      color: #f9fafb;
+      border-radius: 999px;
+      padding: 8px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .lightbox-btn:hover {
+      background: rgba(0, 18, 41, 0.55);
+    }
+
+    .lightbox-actions {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+
+    .gallery-open {
+      display: block;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .lightbox-img {
+        max-height: 72vh;
+      }
+    }
+  </style>
+</head>
+
+<body class="gallery-page">
+  <!-- NAVBAR INJECTION TARGET -->
+  <div id="site-header"></div>
+
+  <main>
+    <!-- HERO -->
+    <section class="gallery-hero">
+      <div class="gallery-inner">
+        <p class="gallery-kicker">Moments from the campaign</p>
+        <h1 class="gallery-title">Gallery</h1>
+        <p class="gallery-lede">
+          Community events, neighborhood visits, and the work that powers this campaign.
+        </p>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section class="gallery-section">
+      <div class="gallery-inner">
+        <div class="gallery-grid">
+
+          <!-- ✅ data-src MUST match img src -->
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Assembly well_ advocates.jpg" data-caption="Assembly well / advocates">
+              <div class="gallery-thumb">
+                <img src="Assembly well_ advocates.jpg" alt="Assembly well / advocates" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Assembly well / advocates</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Bushwick seniors.jpg" data-caption="Bushwick seniors">
+              <div class="gallery-thumb">
+                <img src="Bushwick seniors.jpg" alt="Bushwick seniors" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Bushwick seniors</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Christmas toy drive.jpg" data-caption="Christmas toy drive">
+              <div class="gallery-thumb">
+                <img src="Christmas toy drive.jpg" alt="Christmas toy drive" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Christmas toy drive</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Constituent speech cypress hills.jpg" data-caption="Constituent speech · Cypress Hills">
+              <div class="gallery-thumb">
+                <img src="Constituent speech cypress hills.jpg" alt="Constituent speech · Cypress Hills" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Constituent speech · Cypress Hills</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Constituents cypress hills II.jpg" data-caption="Constituents · Cypress Hills II">
+              <div class="gallery-thumb">
+                <img src="Constituents cypress hills II.jpg" alt="Constituents · Cypress Hills II" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Constituents · Cypress Hills II</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Constituents_assembly floor.jpg" data-caption="Constituents / assembly floor">
+              <div class="gallery-thumb">
+                <img src="Constituents_assembly floor.jpg" alt="Constituents / assembly floor" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Constituents / assembly floor</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Constituents_club meeting.jpg" data-caption="Constituents / club meeting">
+              <div class="gallery-thumb">
+                <img src="Constituents_club meeting.jpg" alt="Constituents / club meeting" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Constituents / club meeting</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Covid distribution _ food.jpg" data-caption="COVID distribution / food">
+              <div class="gallery-thumb">
+                <img src="Covid distribution _ food.jpg" alt="COVID distribution / food" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">COVID distribution / food</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Covid distribution_ tests.jpg" data-caption="COVID distribution / tests">
+              <div class="gallery-thumb">
+                <img src="Covid distribution_ tests.jpg" alt="COVID distribution / tests" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">COVID distribution / tests</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Cypress Hills Seniors_ roses.jpg" data-caption="Cypress Hills seniors / roses">
+              <div class="gallery-thumb">
+                <img src="Cypress Hills Seniors_ roses.jpg" alt="Cypress Hills seniors / roses" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Cypress Hills seniors / roses</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Gov Hochul.jpg" data-caption="Gov. Hochul">
+              <div class="gallery-thumb">
+                <img src="Gov Hochul.jpg" alt="Gov. Hochul" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Gov. Hochul</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Million $ _ 1199.jpg" data-caption="1199 / Million $">
+              <div class="gallery-thumb">
+                <img src="Million $ _ 1199.jpg" alt="1199 / Million $" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">1199 / Million $</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Million$_1199 blue suit.jpg" data-caption="1199 / blue suit">
+              <div class="gallery-thumb">
+                <img src="Million$_1199 blue suit.jpg" alt="1199 / blue suit" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">1199 / blue suit</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Thanksgiving meal prep I.jpg" data-caption="Thanksgiving meal prep">
+              <div class="gallery-thumb">
+                <img src="Thanksgiving meal prep I.jpg" alt="Thanksgiving meal prep" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Thanksgiving meal prep</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Vital bklyn 377 ground breaking.jpg" data-caption="Vital BKLYN 377 ground breaking">
+              <div class="gallery-thumb">
+                <img src="Vital bklyn 377 ground breaking.jpg" alt="Vital BKLYN 377 ground breaking" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Vital BKLYN 377 ground breaking</p>
+              </div>
+            </a>
+          </article>
+
+          <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Vital bklyn 377 ground breaking II.jpg" data-caption="Vital BKLYN 377 ground breaking II">
+              <div class="gallery-thumb">
+                <img src="Vital bklyn 377 ground breaking II.jpg" alt="Vital BKLYN 377 ground breaking II" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+                <p class="gallery-caption">Vital BKLYN 377 ground breaking II</p>
+              </div>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <img class="lightbox-img" id="lightbox-img" alt="" />
+      <div class="lightbox-bar">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+        <div class="lightbox-actions">
+          <button class="lightbox-btn" type="button" id="lightbox-prev" aria-label="Previous image">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="lightbox-btn" type="button" id="lightbox-next" aria-label="Next image">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <button class="lightbox-btn" type="button" id="lightbox-close" aria-label="Close viewer">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-social">
+        <a href="https://www.facebook.com/erikmartindilan/" class="footer-social-pill social-pill--facebook" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/edilan54/?hl=en" class="footer-social-pill social-pill--instagram" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/@DilanforAssembly54thAD" class="footer-social-pill social-pill--youtube" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="https://www.tiktok.com/@erik.dilan54" class="footer-social-pill social-pill--tiktok" target="_blank" rel="noopener" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+        <a href="privacy.html" class="footer-social-pill footer-social-pill--privacy" aria-label="Privacy Policy" title="Privacy Policy">
+          <i class="fa-solid fa-shield-halved"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar injection
+    fetch("navbar.html")
+      .then((r) => r.text())
+      .then((html) => {
+        document.getElementById("site-header").innerHTML = html;
+
+        const navToggle = document.querySelector(".nav-toggle");
+        const mainMenu = document.getElementById("primary-nav");
+
+        if (navToggle && mainMenu) {
+          navToggle.addEventListener("click", () => {
+            const isOpen = mainMenu.classList.toggle("is-open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            document.body.classList.toggle("menu-open", isOpen);
+          });
+        }
+
+        const links = document.querySelectorAll(".main-menu .nav-link");
+        const path = window.location.pathname.split("/").pop() || "index.html";
+        links.forEach((link) => {
+          if (link.getAttribute("href") === path) link.classList.add("active");
+        });
+      })
+      .catch((err) => console.error("Error loading navbar:", err));
+
+    // Lightbox behavior
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const btnClose = document.getElementById("lightbox-close");
+    const btnPrev = document.getElementById("lightbox-prev");
+    const btnNext = document.getElementById("lightbox-next");
+
+    const items = Array.from(document.querySelectorAll(".gallery-open"));
+    let currentIndex = -1;
+
+    function openAt(index) {
+      if (index < 0 || index >= items.length) return;
+      currentIndex = index;
+
+      const el = items[index];
+      const src = el.getAttribute("data-src");
+      const cap = el.getAttribute("data-caption") || "";
+
+      lightboxImg.src = src;
+      lightboxImg.alt = cap || "Gallery image";
+      lightboxCaption.textContent = cap;
+
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("is-open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+      lightboxCaption.textContent = "";
+      currentIndex = -1;
+    }
+
+    function prev() {
+      if (currentIndex === -1) return;
+      openAt((currentIndex - 1 + items.length) % items.length);
+    }
+
+    function next() {
+      if (currentIndex === -1) return;
+      openAt((currentIndex + 1) % items.length);
+    }
+
+    items.forEach((el, idx) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        openAt(idx);
+      });
+    });
+
+    btnClose.addEventListener("click", closeLightbox);
+    btnPrev.addEventListener("click", prev);
+    btnNext.addEventListener("click", next);
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("is-open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    });
+  </script>
+</body>
+</html>
