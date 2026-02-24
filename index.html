@@ -405,6 +405,14 @@ expanding childcare and health care, reforming sentencing and prisons for fairne
     updateCountdown();
     setInterval(updateCountdown, 1000);
     
-  </script > 
+  </script> 
+
+<script>
+  const path = window.location.pathname;
+  if (path !== "/" && !path.endsWith(".html")) {
+    window.location.href = path + ".html";
+  }
+</script>
+
 </body>
 </html>
