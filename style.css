@@ -160,6 +160,77 @@ body.whois-erik-page .site-header {
   color: #111827;
 }
 
+/* TRANSPARENT ENDORSEMENT MARQUEE */
+.endorsement-marquee-section {
+  padding: 26px 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.endorsement-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Remove white edge fade blocks */
+.endorsement-marquee::before,
+.endorsement-marquee::after {
+  display: none;
+}
+
+.endorsement-track {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  width: max-content;
+  animation: endorsementScroll 32s linear infinite;
+  will-change: transform;
+}
+
+.endorsement-track img {
+  height: 64px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  opacity: 1;
+  filter: none;
+  transition: transform 0.35s ease;
+}
+
+.endorsement-track img:hover {
+  transform: scale(1.05);
+}
+
+@keyframes endorsementScroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .endorsement-marquee-section {
+    padding: 20px 0;
+  }
+
+  .endorsement-track {
+    gap: 36px;
+    animation-duration: 24s;
+  }
+
+  .endorsement-track img {
+    height: 48px;
+    max-width: 130px;
+  }
+}
+
 /* =========================
    MOBILE OVERLAY MENU (CLEAN + CONSISTENT)
 ========================= */

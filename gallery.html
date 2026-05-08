@@ -76,21 +76,16 @@
       padding: 28px 0 64px;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
 
-    .gallery-card {
-      border-radius: 18px;
-      border: 1px solid rgba(191, 219, 254, 0.45);
-      background: rgba(15, 23, 42, 0.92);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
-      overflow: hidden;
-      position: relative;
-    }
-
+.gallery-card {
+  align-self: start;
+}
     /* ✅ KEY CHANGE: let images define tile height (no forced aspect ratio) */
     .gallery-thumb {
       width: 100%;
@@ -235,183 +230,135 @@
 
           <!-- ✅ data-src MUST match img src -->
           <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Assembly well_ advocates.jpg" data-caption="Assembly well / advocates">
+            <a class="gallery-open" href="#" data-src="Party_1.jpg" data-caption="">
               <div class="gallery-thumb">
-                <img src="Assembly well_ advocates.jpg" alt="Assembly well / advocates" loading="lazy" decoding="async" />
+                <img src="Party_1.jpg" alt="Party" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-meta">
-                <p class="gallery-caption">Assembly well / advocates</p>
               </div>
             </a>
           </article>
 
           <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Bushwick seniors.jpg" data-caption="Bushwick seniors">
+            <a class="gallery-open" href="#" data-src="Bushwick seniors.jpg" data-caption="">
               <div class="gallery-thumb">
                 <img src="Bushwick seniors.jpg" alt="Bushwick seniors" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-meta">
-                <p class="gallery-caption">Bushwick seniors</p>
               </div>
             </a>
           </article>
 
           <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Christmas toy drive.jpg" data-caption="Christmas toy drive">
+            <a class="gallery-open" href="#" data-src="Seniors_Photo.jpg" data-caption="">
               <div class="gallery-thumb">
-                <img src="Christmas toy drive.jpg" alt="Christmas toy drive" loading="lazy" decoding="async" />
+                <img src="Seniors_Photo.jpg" alt="Seniors_Photo" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-meta">
-                <p class="gallery-caption">Christmas toy drive</p>
+              </div>
+            </a>
+          </article>
+
+           <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Seniors_Appreciation.jpg" data-caption="">
+              <div class="gallery-thumb">
+                <img src="Seniors_Appreciation.jpg" alt="Seniors Appreciation" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+              </div>
+            </a>
+          </article>
+
+                <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Seniors_Appreciation_2.jpg" data-caption="">
+              <div class="gallery-thumb">
+                <img src="Seniors_Appreciation_2.jpg" alt="Seniors Appreciation" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
+              </div>
+            </a>
+          </article>
+
+                    <article class="gallery-card">
+            <a class="gallery-open" href="#" data-src="Food_Distribution.jpg" data-caption="">
+              <div class="gallery-thumb">
+                <img src="Food_Distribution.jpg" alt="Food Distribution" loading="lazy" decoding="async" />
+              </div>
+              <div class="gallery-meta">
               </div>
             </a>
           </article>
 
           <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Constituent speech cypress hills.jpg" data-caption="Constituent speech · Cypress Hills">
+            <a class="gallery-open" href="#" data-src="NYCCP.jpg" data-caption="">
               <div class="gallery-thumb">
-                <img src="Constituent speech cypress hills.jpg" alt="Constituent speech · Cypress Hills" loading="lazy" decoding="async" />
+                <img src="NYCCP.jpg" alt="NYCCP" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-meta">
-                <p class="gallery-caption">Constituent speech · Cypress Hills</p>
               </div>
             </a>
           </article>
 
           <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Constituents cypress hills II.jpg" data-caption="Constituents · Cypress Hills II">
+            <a class="gallery-open" href="#" data-src="CypressHills_Photo.jpg" data-caption="">
               <div class="gallery-thumb">
-                <img src="Constituents cypress hills II.jpg" alt="Constituents · Cypress Hills II" loading="lazy" decoding="async" />
+                <img src="CypressHills_Photo.jpg" alt="Cypress Hills Photo" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-meta">
-                <p class="gallery-caption">Constituents · Cypress Hills II</p>
               </div>
             </a>
           </article>
 
           <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Constituents_assembly floor.jpg" data-caption="Constituents / assembly floor">
+            <a class="gallery-open" href="#" data-src="Constiuents.jpg" data-caption="">
               <div class="gallery-thumb">
-                <img src="Constituents_assembly floor.jpg" alt="Constituents / assembly floor" loading="lazy" decoding="async" />
+                <img src="Constiuents.jpg" alt="Constiuents" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-meta">
-                <p class="gallery-caption">Constituents / assembly floor</p>
               </div>
             </a>
           </article>
 
           <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Constituents_club meeting.jpg" data-caption="Constituents / club meeting">
+            <a class="gallery-open" href="#" data-src="Giando_On_The_Water.jpg" data-caption="">
               <div class="gallery-thumb">
-                <img src="Constituents_club meeting.jpg" alt="Constituents / club meeting" loading="lazy" decoding="async" />
+                <img src="Giando_On_The_Water.jpg" alt="Giando" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-meta">
-                <p class="gallery-caption">Constituents / club meeting</p>
               </div>
             </a>
           </article>
 
           <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Covid distribution _ food.jpg" data-caption="COVID distribution / food">
+            <a class="gallery-open" href="#" data-src="Giando_On_The_Water_2.jpg" data-caption="">
               <div class="gallery-thumb">
-                <img src="Covid distribution _ food.jpg" alt="COVID distribution / food" loading="lazy" decoding="async" />
+                <img src="Giando_On_The_Water_2.jpg" alt="Giando" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-meta">
-                <p class="gallery-caption">COVID distribution / food</p>
               </div>
             </a>
           </article>
 
           <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Covid distribution_ tests.jpg" data-caption="COVID distribution / tests">
+            <a class="gallery-open" href="#" data-src="Assembly_Proclaimation.jpg" data-caption="">
               <div class="gallery-thumb">
-                <img src="Covid distribution_ tests.jpg" alt="COVID distribution / tests" loading="lazy" decoding="async" />
+                <img src="Assembly_Proclaimation.jpg" alt="Assembly Proclaimation" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-meta">
-                <p class="gallery-caption">COVID distribution / tests</p>
               </div>
             </a>
           </article>
 
           <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Cypress Hills Seniors_ roses.jpg" data-caption="Cypress Hills seniors / roses">
+            <a class="gallery-open" href="#" data-src="Million_$_1199.jpg" data-caption="">
               <div class="gallery-thumb">
-                <img src="Cypress Hills Seniors_ roses.jpg" alt="Cypress Hills seniors / roses" loading="lazy" decoding="async" />
+                <img src="Million_$_1199.jpg" alt="1199 / Million $" loading="lazy" decoding="async" />
               </div>
               <div class="gallery-meta">
-                <p class="gallery-caption">Cypress Hills seniors / roses</p>
               </div>
             </a>
           </article>
 
-          <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Gov Hochul.jpg" data-caption="Gov. Hochul">
-              <div class="gallery-thumb">
-                <img src="Gov Hochul.jpg" alt="Gov. Hochul" loading="lazy" decoding="async" />
-              </div>
-              <div class="gallery-meta">
-                <p class="gallery-caption">Gov. Hochul</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Million $ _ 1199.jpg" data-caption="1199 / Million $">
-              <div class="gallery-thumb">
-                <img src="Million $ _ 1199.jpg" alt="1199 / Million $" loading="lazy" decoding="async" />
-              </div>
-              <div class="gallery-meta">
-                <p class="gallery-caption">1199 / Million $</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Million$_1199 blue suit.jpg" data-caption="1199 / blue suit">
-              <div class="gallery-thumb">
-                <img src="Million$_1199 blue suit.jpg" alt="1199 / blue suit" loading="lazy" decoding="async" />
-              </div>
-              <div class="gallery-meta">
-                <p class="gallery-caption">1199 / blue suit</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Thanksgiving meal prep I.jpg" data-caption="Thanksgiving meal prep">
-              <div class="gallery-thumb">
-                <img src="Thanksgiving meal prep I.jpg" alt="Thanksgiving meal prep" loading="lazy" decoding="async" />
-              </div>
-              <div class="gallery-meta">
-                <p class="gallery-caption">Thanksgiving meal prep</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Vital bklyn 377 ground breaking.jpg" data-caption="Vital BKLYN 377 ground breaking">
-              <div class="gallery-thumb">
-                <img src="Vital bklyn 377 ground breaking.jpg" alt="Vital BKLYN 377 ground breaking" loading="lazy" decoding="async" />
-              </div>
-              <div class="gallery-meta">
-                <p class="gallery-caption">Vital BKLYN 377 ground breaking</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="gallery-card">
-            <a class="gallery-open" href="#" data-src="Vital bklyn 377 ground breaking II.jpg" data-caption="Vital BKLYN 377 ground breaking II">
-              <div class="gallery-thumb">
-                <img src="Vital bklyn 377 ground breaking II.jpg" alt="Vital BKLYN 377 ground breaking II" loading="lazy" decoding="async" />
-              </div>
-              <div class="gallery-meta">
-                <p class="gallery-caption">Vital BKLYN 377 ground breaking II</p>
-              </div>
-            </a>
-          </article>
-
-        </div>
-      </div>
     </section>
   </main>
 
